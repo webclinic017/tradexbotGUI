@@ -1,0 +1,34 @@
+{% macro lefttabs(title,nav_items,tab_panes) %}
+<div class="card card-primary card-outline">
+    <div class="card-header">
+      <h3 class="card-title">
+        {{title}}
+      </h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3 col-sm-2">
+          <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+            {{nav_items}}
+          </div>
+        </div>
+        <div class="col-9 col-sm-10">
+          <div class="tab-content" id="vert-tabs-tabContent">
+            {{tab_panes}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+</div>
+{% endmacro %}
+
+{% macro nav_item(id,text,tab="",dataid="", class="", active=False) %}
+    <a class="nav-link {% if active %} active {% endif %} {{class}}" id="{{id}}-tab" data-id="{{dataid}}" data-toggle="pill" href="#{{tab}}" role="tab" aria-controls="{{tab}}" aria-selected="true">{{text}}</a>
+{% endmacro %}
+
+{% macro tab_pane(tab_content, id,dataid="", active=False) %}
+    <div class="tab-pane fade show {% if active %} active {% endif %}" id="{{id}}" data-id="{{dataid}}" role="tabpanel" aria-labelledby="{{id}}-tab">
+        {{ tab_content }}
+    </div>
+{% endmacro %}

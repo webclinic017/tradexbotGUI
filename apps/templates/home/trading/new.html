@@ -1,0 +1,96 @@
+{% extends "layouts/base.html" %}
+{% from 'components/select.html' import select %}
+{% from 'components/textarea.html' import textarea %}
+{% from 'components/button.html' import button %}
+{% from 'components/card.html' import card %}
+{% from 'components/input.html' import input %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>New Trading Setup</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            {# Variables definition #}
+            <form action="/trading/new" method="post">
+                {% set exchanges = [{"id":"binance","name":"binance"},{"id":"coinbase","name":"coinbase"},{"id":"ftx","name":"ftx"}] %}
+                {% set currencies = [{"id":"dolar","name":"$"},{"id":"bitcoin","name":"B"},{"id":"pen","name":"S/"}] %}
+                {% set card_body_exchange %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{select(exchanges,"exchange_id","exchange",label="Exchange",default=False, required=True,divclass="form-group")}}
+                        </div>
+                        <div class="col-md-6">
+                            {{input("commission","commission",label="Commission", required=True, value="0.01", type="number",min=0,max=1,step=0.0005)}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {{input("api_key","api_key",label="API KEY", type="password")}}
+                        </div>
+                        <div class="col-12">
+                            {{input("secret_key","secret_key",label="SECRET KEY", type="password")}}
+                        </div>
+                    </div>
+                {% endset %}
+                {% set card_body_portfolio %}
+                    <div class="row">
+                        <div class="col-md-8">
+                            {{input("capital_id","capital",label="Portfolio Capital", required=True, placeholder="Set a value", type="number",min=0,max=10000,step=0.0003)}}
+                        </div>
+                        <div class="col-4">
+                            {{select(currencies,"currency_id","currency",label="Currency Base",default=False, required=True,divclass="form-group")}}
+                        </div>
+                    </div>
+                {% endset %}
+                {% set card_body_info %}
+                    {{ input("name","name",label="Set a name",placeholder="Trading setup name", required=True) }}
+                    {{ textarea("description","description",label="Description",placeholder="Trading setup description") }}
+                {% endset %}
+                <div class="row justify-content-end mb-4">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-lg btn-primary"><i class="fa fas fa-save mr-2"></i>Save</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{card("Information", card_body_info)}}
+                    </div>
+                    <div class="col-md-4">
+                        {{card("Exchange", card_body_exchange)}}
+                    </div>
+                    <div class="col-md-4">
+                        {{card("Portfolio", card_body_portfolio)}}
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+{% endblock javascripts %}

@@ -1,0 +1,290 @@
+{% extends "layouts/base.html" %}
+{% import 'components/simple-table.html' as x_table %}
+{% from 'components/button.html' import button %}
+{% from 'components/dropdown.html' import dropdown %}
+{% from 'components/modal.html' import modal %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/summernote/summernote-bs4.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>AutoTrain List</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    {% set header = ["Name","Description", "Timeframe", "Active", "Options"] %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-end mb-4">
+                <div class="col-auto">
+                    {% call() dropdown(type="primary",label="Options", icon="apps") %}
+                        <a class="dropdown-item" href="/autotrain/new">New AutoTrain</a>
+                    {% endcall %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% call(row,head,index) x_table.simple_table(header, trainings, "AutoTrain List" , "table_autotrain", height="auto") %}
+                        <tr  data-widget="expandable-table" aria-expanded="false" data-id="{{row.id}}">
+                            {% set is_running = {'val': False} %}
+                            {% for train in row.trainings %}
+                                {% if train.status == "running" %}
+                                    {% if is_running.update({'val': True}) %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for item in head %}
+                                <td>
+                                    {% if item|lower != "options" %}
+                                        {{ row[item|lower] }}
+                                    {% else %}
+                                        {% if is_running.val %}
+                                            <span class="btn btn-sm btn-info btn-generate" title="Generate trains" data-id="{{row.id}}" style="display: none"><i class="fa fas fa-sync"></i></span>
+                                            <span class="btn btn-sm btn-success btn-run-all" title="Stop All" data-id="{{row.id}}" data-status="running" data-index="train_{{index}}"><i class="fa fas fa-stop"></i></span>
+                                        {% else %}
+                                            <span class="btn btn-sm btn-info btn-generate" title="Generate trains" data-id="{{row.id}}"><i class="fa fas fa-sync"></i></span>
+                                            <span class="btn btn-sm btn-success btn-run-all" title="Run All" data-id="{{row.id}}" data-status="stopped" data-index="train_{{index}}"><i class="fa fas fa-play"></i></span>
+                                        {% endif %}
+                                        <a href="/train/results/all/{{row.id}}" title="Train results" class="btn btn-sm btn-secondary" {% if not item.completed %} disabled {% endif %} ><i class="fa fas fa-chart-line"></i></a>
+                                        <a href="/autotrain/edit/{{row.id}}" title="Edit autotrain" class="btn btn-sm btn-secondary"><i class="fa fas fa-edit"></i></a>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                        <tr class="expandable-body" data-index="{{index}}">
+                            <td colspan="5">
+                                <table class=" table table-striped" style="min-width: 100%">
+                                    <tbody class="train_{{index}}">
+                                        {% for item in row.trainings %}
+                                            <tr data-id="{{item.id}}" data-checksum="{{item.checksum}}" class="{{item.status}}" >
+                                                <td class="align-middle" style="width: 5%;"><b>{{loop.index}}</b></td>
+                                                <td class="align-middle" style="width: 45%;"><b>Checksum: </b>{{item["checksum"]}}</td>
+                                                <td class="align-middle" style="width: 30%;">
+                                                    <b>Status: </b>
+                                                    {% if item.status== "success" %}
+                                                        <span class="badge badge-success">Success</span>
+                                                    {% else %}
+                                                        {% if item.status== "running" %}
+                                                            <span class="badge badge-warning">Running</span>
+                                                        {% else %}
+                                                            <span class="badge badge-secondary">Stopped</span>
+                                                        {% endif %}                                                    
+                                                    {% endif %}
+                                                </td>                                
+                                                <td class="align-middle" style="width: 20%;">
+                                                    <span class="btn btn-sm btn-info btn-view-params" title="View params" data-id="{{item.id}}" data-checksum="{{item.checksum}}"><i class="fa fas fa-code"></i></span>
+                                                    <a href="/train/results/{{item.id}}/{{item.checksum}}" title="Train results" class="btn btn-sm btn-secondary" {% if not item.completed %} disabled {% endif %} ><i class="fa fas fa-chart-line"></i></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>                                    
+                                </table>
+                            </td>
+                        </tr>
+                    {% endcall %}
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+{% call modal(id="train_param", title="Train config", savebutton=False) %}
+<div class="form-group">
+    <textarea id="paramtext" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+</div>
+{% endcall %}
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/static/assets/js/sse.js"></script>
+<script>
+    function fillTrains(data,index){
+        data = data.split("data: ");
+        aux = data[0];
+        if(!aux.includes("-")){
+            aux = aux.replaceAll("None","''").slice(1,-1).replaceAll("}, {", "}|{").split("|")        
+            $('table .'+index).empty();
+            let html = "";
+            console.log(aux)
+            $.each(aux, function (i, item) {
+                item = JSON.parse(item.replace(/'/ig,'"'))
+                console.log(item)
+                html += `<tr data-id="${item.id}" data-checksum="${item.checksum}" class="EDITED">
+                        <td class="align-middle" style="width: 5%;"><b>${i+1}</b></td>
+                        <td class="align-middle" style="width: 45%;"><b>Checksum: </b>${item.checksum}</td>
+                        <td class="align-middle" style="width: 30%;">
+                            <b>Status: </b>`;
+                            if(item.status=="success"){
+                                html+=`<span class="badge badge-success">Success</span>`;
+                            }else if(item.status == "running"){
+                                html+=`<span class="badge badge-warning">Running</span>`;
+                            }else{
+                                html+=`<span class="badge badge-secondary">Stopped</span>`;
+                            }
+                        html+=`</td>                                
+                        <td class="align-middle" style="width: 20%;">
+                            <span class="btn btn-sm btn-info btn-view-params" title="View params" data-id="${item.id}" data-checksum="${item.checksum}"><i class="fa fas fa-code"></i></span>
+                            <a href="/train/results/${item.id}/${item.checksum}" title="Train results" class="btn btn-sm btn-secondary"${item.status!='success'?'disabled':''}><i class="fa fas fa-chart-line"></i></a>
+                        </td>
+                    </tr>`;
+            });
+            $('table .'+index).append(html);
+        }
+    }
+    $('#paramtext').summernote()
+    $(document).on('click','.btn-view-params', async function(e){
+        let id = $(this).data('id');
+        let checksum = $(this).data('checksum');
+        $.get(`/train/params/${id}/${checksum}`, function( data ) {
+            $('#paramtext').summernote('insertText', data.code);
+            $('#paramtext').summernote('disable');
+            $('#train_param').modal('show')
+        });
+    });
+    function getConfig(id, checksum){
+        $.get(`/train/config/${id}/${checksum}`).then(function (e){
+            console.log("GGGGGGGGGGGG");
+            return e.config;
+        })
+    }
+    function startRuning(lista,index){
+        var formData = new FormData;
+        formData.append("items",JSON.stringify(lista))
+        $.when( 
+            $.ajax({
+                url: "/train/configs",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+        ).done(function(val){
+            var formData = new FormData();
+            formData.append('configs',val.configs);
+            $.ajax({
+                url: "/train/run/all",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    console.log(data);
+                    if (data.success){
+                        toastr.success('Train running successfully!')
+
+                    }else{
+                        toastr.error('Run training Failed.')
+                    }
+                }
+            });
+            /*
+            var source = new SSE("/train/run/all", {payload: formData}
+                        );
+            source.addEventListener("message", function(event) {
+                // Logic to handle status updates
+                fillTrains(event.data, index);
+            });
+            source.addEventListener("end", function(event) {
+                console.log('Handling end....')
+                source.close(); 
+            });
+            source.stream();
+            */
+        });        
+    }
+    $(document).on('click','.btn-run-all', async function(e){
+        let status = $(this).data('status');
+        let id = $(this).data('id');
+        let element = $(this);
+        if(status == "running"){
+            $.get(`/train/stop/${id}`, function( data ) {
+                if (data.success){
+                    element.attr("data-status","stopped")
+                    element.attr("title","Run All")
+                    element.empty();
+                    element.append(`<i class="fa fas fa-play"></i>`);
+                    element.prev('span').show();
+                    toastr.success('Train stopped successfully!')
+                }else{
+                    toastr.error('Stop running failed.')
+                }
+            });
+        }else{
+            let autotrain = $(this).data('index');
+            let trs = $('.'+autotrain+' tr:not(.success,.error)')
+            var lista = [];
+            $.when(
+                $.each( trs, function(index,item) {
+                    lista.push({"id":$(item).data('id'),"checksum":$(item).data('checksum')});
+                })
+            ).done(function(e){
+                startRuning(lista,autotrain);
+            });
+        }
+
+    });
+    $('#train_param').on('hidden.bs.modal', function(e){
+        $('#paramtext').summernote('reset');
+    });
+    $(document).on('click','.btn-generate',function(e){
+        let autotrain_id = $(this).data('id');
+        console.log(autotrain_id);
+        var formData = new FormData();
+        formData.append('autotrain_id',autotrain_id);
+        console.log(formData);
+        row_to_add = $(this).closest('tr').next().find('td');
+        console.log(row_to_add);
+        $.ajax({
+            url: "/autotrain/generate",
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                console.log(data);
+                let trHTML = "";
+                trHTML += `<table class=" table table-striped" style="min-width: 100%">
+                    <tbody class="train_{{index}}">`;
+                $.each(data, (i,item)=>{
+                    trHTML+=`<tr data-id="${item.id}" data-checksum="${item.checksum}" class="None" >
+                        <td class="align-middle" style="width: 5%;"><b>${i+1}</b></td>
+                        <td class="align-middle" style="width: 45%;"><b>Checksum: </b>${item.checksum}</td>
+                        <td class="align-middle" style="width: 30%;">
+                            <b>Status: </b>
+                            <span class="badge badge-secondary">Not started</span>
+                        </td>                                
+                        <td class="align-middle" style="width: 20%;">
+                            <span class="btn btn-sm btn-info btn-view-params" title="View params" data-id="${item.id}" data-checksum="${item.checksum}"><i class="fa fas fa-code"></i></span>
+                            <a href="/train/results/${item.id}/${item.checksum}" title="Train results" class="btn btn-sm btn-secondary" disabled ><i class="fa fas fa-chart-line"></i></a>
+                        </td>
+                    </tr>`;                
+                });
+                trHTML += `</tbody>                                    
+                </table>`;
+                row_to_add.empty();
+                row_to_add.append(trHTML);
+            }
+        });
+    });
+    
+</script>
+{% endblock javascripts %}

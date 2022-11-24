@@ -1,0 +1,995 @@
+[
+    {'checksum': '96f854d9c5c33eadb418fb4922fad59f', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '2536b3a97d8edef4323ab932ceebc326', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '84e7c1c5505b92b617c221ed3ac7ad11', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '58c1e8df9f11f991b1c0f192b508e030', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '828b71b790e2e9b441664e73d8721c2d', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '6142ccb3eaab15c4a80042e3c1388670', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': '423fa20e278deb54dbbc4328f4615f0d', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                        }
+                    },
+                    {'parameters': '{\'learning_rate\': \'[
+                                0.1
+                            ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                                1000,
+                                1200
+                            ]\', \'random_state\': \'0\'
+                        }', 'algorithm': {'name': 'XGBoost'
+                        }
+                    }
+                ]
+            }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+            }, 'train_data_end': '09/10/2022', 'train_indicators': [
+                {'indicator': {'name': 'adx'
+                    }
+                },
+                {'indicator': {'name': 'ema100'
+                    }
+                },
+                {'indicator': {'name': 'ma200'
+                    }
+                }
+            ], 'strategy': {'rules': [
+                    {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                        }, 'condition': {'name': 'Below'
+                        }, 'second_indicator': {'name': 'fastd'
+                        }, 'order_type': True
+                    },
+                    {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                        }, 'condition': {'name': 'Minor'
+                        }, 'second_indicator': {'name': 'ema55'
+                        }, 'order_type': False
+                    }
+                ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                    }, 'filter': {'filter_drop_rsi_above': 28
+                    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                    }
+                }, 'strategy_metrics': [
+                    {'portfolio_metric': {'name': '% Profit'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Abs Drawdown'
+                        }
+                    },
+                    {'portfolio_metric': {'name': 'Jensen Alpha'
+                        }
+                    }
+                ], 'buy_strategy': {'name': 'Incremental Buys'
+                }, 'strategy_pairs': [
+                    {'pair': {'name': 'AAVEBTC'
+                        }
+                    },
+                    {'pair': {'name': 'ADABTC'
+                        }
+                    },
+                    {'pair': {'name': 'ATOMBTC'
+                        }
+                    }
+                ]
+            }, 'id': 1, 'backtest_data_start': '09/10/2022'
+        }, 'backtest': {'backtest_initial_max': '15,
+            20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+        }, 'filter': {'filter_drop_rsi_above': 28
+        }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+        }
+    },
+    {'checksum': 'c9c3595c65a2c9cc5f1a62280bb62d78', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                    {'model_metric': {'name': 'Accuracy'
+                        }
+                    },
+                    {'model_metric': {'name': 'F1-score'
+                        }
+                    }
+                ], 'algorithm_details': [
+                    {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 
+'cv': '5', 'random_state': '0'
+                    }", 'algorithm': {'name': 'RandomForest'}}, {'parameters': '{\'learning_rate\': \'[0.1]\', \'objective\': "[\'binary:logistic\'
+                    ]", \'cv\': \'5\', \'n_estimators\': \'[1000, 1200]\', \'random_state\': \'0\'}', 'algorithm': {'name': 'XGBoost'}}]}, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1}, 'train_data_end': '09/10/2022', 'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'ema100'}}, {'indicator': {'name': 'ma200'}}], 'strategy': {'rules': [{'value': 0.0, 'first_indicator': {'name': 'lowerband'}, 'condition': {'name': 'Below'}, 'second_indicator': {'name': 'fastd'}, 'order_type': True}, {'value': 0.0, 'first_indicator': {'name': 'ema55'}, 'condition': {'name': 'Minor'}, 'second_indicator': {'name': 'ema55'}, 'order_type': False}], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, 'strategy_metrics': [{'portfolio_metric': {'name': '% Profit'}}, {'portfolio_metric': {'name': 'Abs Drawdown'}}, {'portfolio_metric': {'name': 'Jensen Alpha'}}], 'buy_strategy': {'name': 'Incremental Buys'}, 'strategy_pairs': [{'pair': {'name': 'AAVEBTC'}}, {'pair': {'name': 'ADABTC'}}, {'pair': {'name': 'ATOMBTC'}}]}, 'id': 1, 'backtest_data_start': '09/10/2022'}, 'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, {'checksum': '3390a42cfb4164b5e9d46de4cd6af94a', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [{'model_metric': {'name': 'Accuracy'}}, {'model_metric': {'name': 'F1-score'}}], 'algorithm_details': [{'parameters': "{'n_stimators': '[
+                            800,
+                            1000
+                        ]', 'min_samples_split': '[
+                            4
+                        ]', 'cv': '5', 'random_state': '0'
+                    }", 'algorithm': {'name': 'RandomForest'}}, {'parameters': '{\'learning_rate\': \'[0.1]\', \'objective\': "[\'binary:logistic\'
+                    ]", \'cv\': \'5\', \'n_estimators\': \'[1000, 1200]\', \'random_state\': \'0\'}', 'algorithm': {'name': 'XGBoost'}}]}, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1}, 'train_data_end': '09/10/2022', 'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'ema100'}}, {'indicator': {'name': 'ma200'}}], 'strategy': {'rules': [{'value': 0.0, 'first_indicator': {'name': 'lowerband'}, 'condition': {'name': 'Below'}, 'second_indicator': {'name': 'fastd'}, 'order_type': True}, {'value': 0.0, 'first_indicator': {'name': 'ema55'}, 'condition': {'name': 'Minor'}, 'second_indicator': {'name': 'ema55'}, 'order_type': False}], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, 'strategy_metrics': [{'portfolio_metric': {'name': '% Profit'}}, {'portfolio_metric': {'name': 'Abs Drawdown'}}, {'portfolio_metric': {'name': 'Jensen Alpha'}}], 'buy_strategy': {'name': 'Incremental Buys'}, 'strategy_pairs': [{'pair': {'name': 'AAVEBTC'}}, {'pair': {'name': 'ADABTC'}}, {'pair': {'name': 'ATOMBTC'}}]}, 'id': 1, 'backtest_data_start': '09/10/2022'}, 'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, {'checksum': 'bd94cb55b24f217be79d828180b660ab', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [{'model_metric': {'name': 'Accuracy'}}, {'model_metric': {'name': 'F1-score'}}], 'algorithm_details': [{'parameters': "{'n_stimators': '[
+                            800,
+                            1000
+                        ]', 'min_samples_split': '[
+                            4
+                        ]', 'cv': '5', 'random_state': '0'
+                    }", 'algorithm': {'name': 'RandomForest'}}, {'parameters': '{\'learning_rate\': \'[0.1]\', \'objective\': "[\'binary:logistic\'
+                    ]", \'cv\': \'5\', \'n_estimators\': \'[1000, 1200]\', \'random_state\': \'0\'}', 'algorithm': {'name': 'XGBoost'}}]}, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1}, 'train_data_end': '09/10/2022', 'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'ema100'}}, {'indicator': {'name': 'ma200'}}], 'strategy': {'rules': [{'value': 0.0, 'first_indicator': {'name': 'lowerband'}, 'condition': {'name': 'Below'}, 'second_indicator': {'name': 'fastd'}, 'order_type': True}, {'value': 0.0, 'first_indicator': {'name': 'ema55'}, 'condition': {'name': 'Minor'}, 'second_indicator': {'name': 'ema55'}, 'order_type': False}], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, 'strategy_metrics': [{'portfolio_metric': {'name': '% Profit'}}, {'portfolio_metric': {'name': 'Abs Drawdown'}}, {'portfolio_metric': {'name': 'Jensen Alpha'}}], 'buy_strategy': {'name': 'Incremental Buys'}, 'strategy_pairs': [{'pair': {'name': 'AAVEBTC'}}, {'pair': {'name': 'ADABTC'}}, {'pair': {'name': 'ATOMBTC'}}]}, 'id': 1, 'backtest_data_start': '09/10/2022'}, 'backtest': {'backtest_initial_max': '15,20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 28}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6}}, {'checksum': '4d53bbc30e4dbcc6cee8046fb9debabd', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [{'model_metric': {'name': 'Accuracy'}}, {'model_metric': {'name': 'F1-score'}}], 'algorithm_details': [{'parameters': "{'n_stimators': '[
+                            800,
+                            1000
+                        ]', 'min_samples_split': '[
+                            4
+                        ]', 'cv': '5', 'random_state': '0'
+                    }", 'algorithm': {'name': 'RandomForest'}}, {'parameters': '{\'learning_rate\': \'[0.1]\', \'objective\': "[\'binary:logistic\'
+                    ]", \'cv\': \'5\', \'n_estimators\': \'[1000, 1200]\', \'random_state\': \'0\'}', 'algorithm': {'name': 'XGBoost'}}]}, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1}, 'train_data_end': '09/10/2022', 'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'ema100'}}, {'indicator': {'name': 'ma200'}}], 'strategy': {'rules': [{'value': 0.0, 'first_indicator': {'name': 'lowerband'}, 'condition': {'name': 'Below'}, 'second_indicator': {'name': 'fastd'}, 'order_type': True}, {'value': 0.0, 'first_indicator': {'name': 'ema55'}, 'condition': {'name': 'Minor'}, 'second_indicator': {'name': 'ema55'}, 'order_type': False}], 'strategy_parameters': {'backtest': {'backtest_initial_max': 
+'15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+},
+{'checksum': '5c6fa37855b9e20bdbdad181bbed446e', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                {'model_metric': {'name': 'Accuracy'
+                    }
+                },
+                {'model_metric': {'name': 'F1-score'
+                    }
+                }
+            ], 'algorithm_details': [
+                {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                    }
+                },
+                {'parameters': '{\'learning_rate\': \'[
+                            0.1
+                        ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                            1000,
+                            1200
+                        ]\', \'random_state\': \'0\'
+                    }', 'algorithm': {'name': 'XGBoost'
+                    }
+                }
+            ]
+        }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+        }, 'train_data_end': '09/10/2022', 'train_indicators': [
+            {'indicator': {'name': 'adx'
+                }
+            },
+            {'indicator': {'name': 'ema100'
+                }
+            },
+            {'indicator': {'name': 'ma200'
+                }
+            }
+        ], 'strategy': {'rules': [
+                {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                    }, 'condition': {'name': 'Below'
+                    }, 'second_indicator': {'name': 'fastd'
+                    }, 'order_type': True
+                },
+                {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                    }, 'condition': {'name': 'Minor'
+                    }, 'second_indicator': {'name': 'ema55'
+                    }, 'order_type': False
+                }
+            ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+},
+{'checksum': '110c75b9707aa97a9020a73808e305ca', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                {'model_metric': {'name': 'Accuracy'
+                    }
+                },
+                {'model_metric': {'name': 'F1-score'
+                    }
+                }
+            ], 'algorithm_details': [
+                {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                    }
+                },
+                {'parameters': '{\'learning_rate\': \'[
+                            0.1
+                        ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                            1000,
+                            1200
+                        ]\', \'random_state\': \'0\'
+                    }', 'algorithm': {'name': 'XGBoost'
+                    }
+                }
+            ]
+        }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+        }, 'train_data_end': '09/10/2022', 'train_indicators': [
+            {'indicator': {'name': 'adx'
+                }
+            },
+            {'indicator': {'name': 'ema100'
+                }
+            },
+            {'indicator': {'name': 'ma200'
+                }
+            }
+        ], 'strategy': {'rules': [
+                {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                    }, 'condition': {'name': 'Below'
+                    }, 'second_indicator': {'name': 'fastd'
+                    }, 'order_type': True
+                },
+                {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                    }, 'condition': {'name': 'Minor'
+                    }, 'second_indicator': {'name': 'ema55'
+                    }, 
+'order_type': False
+                }
+            ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+},
+{'checksum': '268795a9a6c6901339cd58514a607576', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                {'model_metric': {'name': 'Accuracy'
+                    }
+                },
+                {'model_metric': {'name': 'F1-score'
+                    }
+                }
+            ], 'algorithm_details': [
+                {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                    }
+                },
+                {'parameters': '{\'learning_rate\': \'[
+                            0.1
+                        ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                            1000,
+                            1200
+                        ]\', \'random_state\': \'0\'
+                    }', 'algorithm': {'name': 'XGBoost'
+                    }
+                }
+            ]
+        }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+        }, 'train_data_end': '09/10/2022', 'train_indicators': [
+            {'indicator': {'name': 'adx'
+                }
+            },
+            {'indicator': {'name': 'ema100'
+                }
+            },
+            {'indicator': {'name': 'ma200'
+                }
+            }
+        ], 'strategy': {'rules': [
+                {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                    }, 'condition': {'name': 'Below'
+                    }, 'second_indicator': {'name': 'fastd'
+                    }, 'order_type': True
+                },
+                {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                    }, 'condition': {'name': 'Minor'
+                    }, 'second_indicator': {'name': 'ema55'
+                    }, 'order_type': False
+                }
+            ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+},
+{'checksum': '934396c57d8e6ce8054ec2a5e47bcc94', 'conf': {'train_data_start': '09/10/2022', 
+'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                {'model_metric': {'name': 'Accuracy'
+                    }
+                },
+                {'model_metric': {'name': 'F1-score'
+                    }
+                }
+            ], 'algorithm_details': [
+                {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                    }
+                },
+                {'parameters': '{\'learning_rate\': \'[
+                            0.1
+                        ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                            1000,
+                            1200
+                        ]\', \'random_state\': \'0\'
+                    }', 'algorithm': {'name': 'XGBoost'
+                    }
+                }
+            ]
+        }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+        }, 'train_data_end': '09/10/2022', 'train_indicators': [
+            {'indicator': {'name': 'adx'
+                }
+            },
+            {'indicator': {'name': 'ema100'
+                }
+            },
+            {'indicator': {'name': 'ma200'
+                }
+            }
+        ], 'strategy': {'rules': [
+                {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                    }, 'condition': {'name': 'Below'
+                    }, 'second_indicator': {'name': 'fastd'
+                    }, 'order_type': True
+                },
+                {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                    }, 'condition': {'name': 'Minor'
+                    }, 'second_indicator': {'name': 'ema55'
+                    }, 'order_type': False
+                }
+            ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+},
+{'checksum': '408ab3c8ae3d2b10b3f7b45945da412e', 'conf': {'train_data_start': '09/10/2022', 'timeframe': '15m', 'backtest_data_end': '09/10/2022', 'training_detail': {'data_split': 50.0, 'training_metrics': [
+                {'model_metric': {'name': 'Accuracy'
+                    }
+                },
+                {'model_metric': {'name': 'F1-score'
+                    }
+                }
+            ], 'algorithm_details': [
+                {'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}", 'algorithm': {'name': 'RandomForest'
+                    }
+                },
+                {'parameters': '{\'learning_rate\': \'[
+                            0.1
+                        ]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[
+                            1000,
+                            1200
+                        ]\', \'random_state\': \'0\'
+                    }', 'algorithm': {'name': 'XGBoost'
+                    }
+                }
+            ]
+        }, 'trading_setup': {'exchange_comission': 0.01, 'currency_base': 'dolar', 'exchange': 'binance', 'capital': 9999.9999, 'api_key': 'fgsdfgsdf gsfgs dff', 'api_secret': 'dfgsdf gsdfgsdfgfsd', 'id': 1
+        }, 'train_data_end': '09/10/2022', 'train_indicators': [
+            {'indicator': {'name': 'adx'
+                }
+            },
+            {'indicator': {'name': 'ema100'
+                }
+            },
+            {'indicator': {'name': 'ma200'
+                }
+            }
+        ], 'strategy': {'rules': [
+                {'value': 0.0, 'first_indicator': {'name': 'lowerband'
+                    }, 'condition': {'name': 'Below'
+                    }, 'second_indicator': {'name': 'fastd'
+                    }, 'order_type': True
+                },
+                {'value': 0.0, 'first_indicator': {'name': 'ema55'
+                    }, 'condition': {'name': 'Minor'
+                    }, 'second_indicator': {'name': 'ema55'
+                    }, 'order_type': False
+                }
+            ], 'strategy_parameters': {'backtest': {'backtest_initial_max': '15,
+                    20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+                }, 'filter': {'filter_drop_rsi_above': 28
+                }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+                }
+            }, 'strategy_metrics': [
+                {'portfolio_metric': {'name': '% Profit'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Abs Drawdown'
+                    }
+                },
+                {'portfolio_metric': {'name': 'Jensen Alpha'
+                    }
+                }
+            ], 'buy_strategy': {'name': 'Incremental Buys'
+            }, 'strategy_pairs': [
+                {'pair': {'name': 'AAVEBTC'
+                    }
+                },
+                {'pair': {'name': 'ADABTC'
+                    }
+                },
+                {'pair': {'name': 'ATOMBTC'
+                    }
+                }
+            ]
+        }, 'id': 1, 'backtest_data_start': '09/10/2022'
+    }, 'backtest': {'backtest_initial_max': '15,
+        20', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'
+    }, 'filter': {'filter_drop_rsi_above': 28
+    }, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 8, 'target_profit_candles': 6
+    }
+}
+]

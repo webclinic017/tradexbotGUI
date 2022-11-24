@@ -1,0 +1,363 @@
+{% extends "layouts/base.html" %}
+{% import 'components/simple-table.html' as x_table %}
+{% from 'components/button.html' import button %}
+{% from 'components/dropdown.html' import dropdown %}
+{% from 'components/modal.html' import modal %}
+{% from 'components/left-nav.html' import lefttabs, nav_item, tab_pane %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">        
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Bot Results</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <input type="hidden" id="bot_id" value="{{bot.id}}">
+    <input type="hidden" id="bot_uuid" value="{{bot.uuid}}">
+    {% set portfolio_content %}
+        <div class="row p-2">
+            <div class="col-md-9 charts">
+                <div id="chart">
+
+                </div>
+            </div>
+            <div class="col-md-3 metrics">
+
+            </div>
+        </div>
+        <div class="row trades-all-row justify-content-center p-2">
+            {% set header = ["N°","Pair","Open date", "Close date", "Buy Price", "Sell Price","Investment","Profit"]%}
+            {% call(row,head,index) x_table.simple_table(header, trades, "Trades" , "table_trades_all", class="hover", height="auto") %}
+                <tr>
+                    <td rowspan="1">{{index}}</td>
+                    <td>{{row.pair}}</td>
+                    <td>{{row.open_date}}</td>
+                    <td>{{row.close_date}}</td>
+                    <td>{{row.entry_price|round(8, 'common')}}</td>
+                    <td>{{row.close_price|round(8, 'common')}}</td>
+                    <td>{{row.investment|round(8, 'common')}}</td>
+                    <td>
+                        {% if row.closed == 1 %}
+                            {% set profit = (((row.close_price * row.quantity)-(row.entry_price * row.quantity))/row.investment)*100 %}
+                            {% if profit > 0 %}
+                                <small class="badge badge-success">{{profit|round(2, 'common')}} %</small>
+                            {% else %}
+                                <small class="badge badge-danger">{{profit|round(2, 'common')}} %</small>
+                            {% endif %}
+                        {% else %}
+                            <small class="badge badge-warning">Open</small>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endcall %}
+        </div>
+    {% endset %}
+
+    {% set base_struct %}
+        <div class="row p-2">
+            <div class="col-md-9 charts">
+                <div id="chart_pair">
+
+                </div>
+            </div>
+            <div class="col-md-3 metrics">
+
+            </div>
+        </div>
+        <div class="row trades-row justify-content-center p-2">
+            {% set header = ["N°","Pair","Open date", "Close date", "Buy Price", "Sell Price","Investment","Profit"]%}
+            {% call(row,head,index) x_table.simple_table(header, [], "Trades" , "table_trades", class="hover table_trades", height="auto") %}                
+            {% endcall %}
+        </div>
+    {% endset %}
+    <section class="content">
+        <div class="container-fluid">
+            {% set nav_items %}
+                {{nav_item("portfolio","Portfolio","portfolio", active=True)}}
+                {% for pair in pairs %}
+                    {{nav_item("pair_"+pair|string,pair|string, "pair_tab", dataid=pair|string, active=False, class="pair_result", class="results")}}
+                {% endfor %}
+            {% endset %}
+            {% set tab_panes %}
+                {{tab_pane(portfolio_content,"portfolio", active=True)}}
+                {{tab_pane(base_struct,"pair_tab", dataid="", active=False)}}
+            {% endset %}
+            {{lefttabs("Results",nav_items,tab_panes)}}
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/js/plotly-2.16.1.min.js"></script>
+<script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+<script src="/static/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    var date_evolution = {{date_evolution | safe }};
+    
+    var portfolio_evolution = {{portfolio_evolution | safe }};
+    var invested_evolution = {{invested_evolution | safe }};
+    var available_evolution = {{available_evolution | safe }};
+
+    function unpack(rows, key) {
+        return rows.map(function(row) { return row[key]; });
+    }
+    function getUniqueListBy(arr, key) {
+        return [...new Map(arr.map(item => [item[key], item])).values()]
+    }
+    function formatdate(date, sell = false){
+        date = date.toString();
+        aux = date.split(" ");
+        aux2 = aux[0].split("/");
+        ret = aux2[2]+'-'+aux2[1]+'-'+aux2[0]+' '+aux[1];
+        if (sell){
+            if (ret.slice(-1) == '5'){
+                ret[-1] = '4';
+            }else{
+                ret[-1] = '9';
+            }
+        }
+        return ret
+    }
+    function ToLocalDate(inDate) {
+        var date = new Date();
+        date.setTime(inDate.valueOf() - 60000 * inDate.getTimezoneOffset());
+        return date;
+    }
+    function chart_portfolio(){
+        var trace1 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'Portfolio value',
+            x: date_evolution,
+            y: portfolio_evolution,
+        }
+          
+        var trace2 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'Invested capital',
+            x: date_evolution,
+            y: invested_evolution,
+            yaxis: 'y2'
+        }
+          
+        var trace3 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'Available capital',
+            x: date_evolution,
+            y: available_evolution,
+            yaxis: 'y3',
+        }
+          
+        var data = [trace1, trace2, trace3];
+        
+        var layout = {
+        yaxis: {domain: [0, 0.40]},
+        height: 600,
+        legend: {traceorder: 'reversed'},
+        yaxis2: {domain: [0.40, 0.70]},
+        yaxis3: {domain: [0.70, 1]}
+        };
+
+        Plotly.newPlot('chart', data, layout);          
+    }
+    function chart_candle(data, trades, div_id){
+        data_time = JSON.parse(data.close_time);
+        console.log("data_time before");
+        console.log(data_time);
+        data_time = data_time.map(item => {
+            return ToLocalDate(new Date(parseFloat(item)*1000)).toISOString().slice(0, 16).replace('T', ' ')
+        });
+        console.log("data_time after");
+        console.log(data_time);
+
+        var trace = {
+            x: data_time,
+            close: data.close,
+            high: data.high,
+            low: data.low,
+            open: data.open,
+        
+            // cutomise colors
+            increasing: {line: {color: 'green'}},
+            decreasing: {line: {color: 'red'}},
+        
+            type: 'candlestick',
+            xaxis: 'x',
+            yaxis: 'y'
+        };
+        console.log("trades");
+        console.log(trades);
+        var data = [trace];
+        var anotations = [];
+        
+        let anotation_buys = trades.map(item => {
+            //console.log(new Date(item.close_candle).toISOString().slice(0, 16).replace('T', ' '))
+            const container = {
+                x: ToLocalDate(new Date(parseFloat(item.close_candle))).toISOString().slice(0, 16).replace('T', ' '),
+                y: item.entry_price,
+                xref: 'x',
+                yref: 'y',
+                text: 'Buy',
+                showarrow: true,
+                arrowhead: 3,
+                arrowcolor: '#00FF23',
+                ax: -30,
+                ay: 30
+            };
+            return container;
+        })
+        let anotation_sells = trades.map(item => {
+            //console.log(typeof(new Date(item.close_candle).toISOString().slice(0, 16).replace('T', ' ')));
+            if(item.closed == 1){
+                const container = {
+                    x: ToLocalDate(new Date(parseFloat(item.close_date))).toISOString().slice(0, 16).replace('T', ' '),
+                    y: item.close_price,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Sell',
+                    showarrow: true,
+                    arrowhead: 3,
+                    arrowcolor: '#FF0000',
+                    ax: 30,
+                    ay: -30
+                };
+                return container;
+            }
+        });
+        anotation_sells = getUniqueListBy(anotation_sells, 'close_candle')
+        console.log("anotation_buys");
+        console.log(anotation_buys);
+        console.log("anotation_sells");
+        console.log(anotation_sells);
+        var layout = {
+            dragmode: 'zoom',
+            showlegend: false,
+            xaxis: {
+            rangeslider: {
+                    visible: false
+                }
+            },
+            annotations: [...anotation_buys, ...anotation_sells]
+        };
+        
+        Plotly.newPlot(div_id, data, layout);
+    }
+    $(document).ready(function () {
+        let table_trades_all = $('#table_trades_all').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        }); 
+        let table_trades = $('#table_trades').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $(document).on('click','.results', function(e){
+            let bot_id = $('#bot_id').val();
+            let bot_uuid = $('#bot_uuid').val();
+            let pair = $(this).data('id');
+            $.get(`/autotrade/result/${bot_id}/${bot_uuid}/${pair}`).then( result => {
+                try{
+                    if(result.success){
+                        console.log(result.data)
+                        console.log(result.trades)
+                        chart_candle(result.data, result.trades, "chart_pair");
+                        table_trades.clear();
+                        let trHTML = "";
+                        $.each(result.trades, function(i, item) {
+                            trHTML +=
+                                `<tr>
+                                    <td rowspan="1">${i+1}</td>
+                                    <td>${item.pair}</td>
+                                    <td>${item.open_date}</td>
+                                    <td>${item.close_date}</td>
+                                    <td>${parseFloat((item.entry_price).toFixed(8))}</td>
+                                    <td>${parseFloat((item.close_price).toFixed(8))}</td>
+                                    <td>${parseFloat((item.investment).toFixed(8))}</td>
+                                    <td>`;
+                            if(item.closed == 1){
+                                let profit = (((item.close_price * item.quantity)-(item.entry_price * item.quantity))/item.investment)*100;
+                                if(profit>0){
+                                    trHTML += `<small class="badge badge-success">${profit.toFixed(2)} %</small>`;
+                                }else{
+                                    trHTML += `<small class="badge badge-danger">${profit.toFixed(2)} %</small>`;
+                                }
+                            }else{
+                                trHTML += `<small class="badge badge-warning">Open</small>`;
+                            }
+                            trHTML += `</td>
+                                </tr>`;
+                        });
+                        table_trades.rows.add($(trHTML)).draw();
+                    }else{
+                        toastr.error('Cant get data.')
+                    }
+                    //result.metrics
+                }catch(error){
+                    toastr.error('Failed request.')
+                    console.error(error)
+                }
+            });
+        });
+        $('#favorite').on('click', function(e){
+            const value = $(this).attr('data-value');
+            const training_id = $('.nav-link.backtest.active').data("id");
+            const model_name = $('#train_tab .models input[name=model_options]:checked').val();            
+            $.get(`/train/favorite/${training_id}/${model_name}`).then( result => {
+                if(result.success){
+                    if(value == 0){
+                        $('#favorite').removeClass('btn-outline-warning').addClass('btn-warning');
+                        $('#favorite span').html('Favorite');
+                        $('#favorite').attr('data-value',1)
+                    }else{
+                        $('#favorite').removeClass('btn-warning').addClass('btn-outline-warning');
+                        $('#favorite span').html('Set favorite');
+                        $('#favorite').attr('data-value',0)
+                    }
+                }
+            });
+        });
+        date_evolution = date_evolution.map(item => {
+            return new Date(item*1000).toISOString().slice(0, 19).replace('T', ' ')
+        });
+        //console.log(date_evolution)
+        chart_portfolio();
+    });
+</script>
+{% endblock javascripts %}

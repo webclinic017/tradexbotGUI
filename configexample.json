@@ -1,0 +1,446 @@
+{
+    "id": 1,
+    "strategy": {
+      "strategy_pairs": [
+        {
+          "pair": {
+            "name": "AAVEBTC"
+          }
+        },
+        {
+          "pair": {
+            "name": "ADABTC"
+          }
+        },
+        {
+          "pair": {
+            "name": "ALGOUSDT"
+          }
+        },
+        {
+          "pair": {
+            "name": "ATOMUSDT"
+          }
+        }
+      ],
+      "strategy_parameters": "{'backtest': {'backtest_initial_max': '10,14', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': '30'}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': '16', 'target_profit_candles': '8'}}",
+      "buy_strategy": {
+        "name": "Incremental Buys"
+      },
+      "rules": [
+        {
+          "second_indicator": {
+            "name": "change"
+          },
+          "order_type": true,
+          "value": 0,
+          "condition": {
+            "name": "Crosses Up"
+          },
+          "first_indicator": {
+            "name": "cci"
+          }
+        },
+        {
+          "second_indicator": {
+            "name": "ema100"
+          },
+          "order_type": false,
+          "value": 0,
+          "condition": {
+            "name": "Equal"
+          },
+          "first_indicator": {
+            "name": "ema100"
+          }
+        }
+      ],
+      "strategy_metrics": [
+        {
+          "portfolio_metric": {
+            "name": "% Profit"
+          }
+        },
+        {
+          "portfolio_metric": {
+            "name": "Abs \r\nDrawdown"
+          }
+        },
+        {
+          "portfolio_metric": {
+            "name": "Jensen Alpha"
+          }
+        }
+      ]
+    },
+    "train_data_start": "01/01/2020",
+    "train_indicators": [
+      {
+        "indicator": {
+          "name": "adx"
+        }
+      },
+      {
+        "indicator": {
+          "name": "ema100"
+        }
+      },
+      {
+        "indicator": {
+          "name": "ema400"
+        }
+      },
+      {
+        "indicator": {
+          "name": "ema50"
+        }
+      }
+    ],
+    "train_data_end": "09/10/2021",
+    "timeframe": "15m",
+    "trading_setup": {
+      "api_key": "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+      "exchange": "binance",
+      "api_secret": "ttttttttttttttttttttttttttttt",
+      "exchange_comission": 0.01,
+      "capital": 9999.9999,
+      "currency_base": "dolar",
+      "id": 1
+    },
+    "training_detail": {
+      "data_split": 60,
+      "algorithm_details": [
+        {
+          "algorithm": {
+            "name": "RandomForest"
+          },
+          "parameters": "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', \r\n'cv': '5', 'random_state': '0'}"
+        },
+        {
+          "algorithm": {
+            "name": "XGBoost"
+          },
+          "parameters": "{'learning_rate': '[0.1]', 'objective': \"['binary:logistic']\", 'cv': '5', 'n_estimators': '[1000, 1200]', 'random_state': '0'}"
+        }
+      ],
+      "training_metrics": [
+        {
+          "model_metric": {
+            "name": "Accuracy"
+          }
+        },
+        {
+          "model_metric": {
+            "name": "F1-score"
+          }
+        },
+        {
+          "model_metric": {
+            "name": "Precision"
+          }
+        }
+      ]
+    },
+    "backtest_data_end": "09/10/2022",
+    "backtest_data_start": "09/10/2021"
+  }
+
+  {
+    'training_detail': {
+      'data_split': 50.0, 
+      'training_metrics': [
+        {
+          'model_metric': {
+            'name': 'Accuracy'
+          }
+        }, 
+        {
+          'model_metric': {
+            'name': 'F1-score'
+          }
+        }
+      ], 
+      'algorithm_details': [
+        {
+          'algorithm': {
+            'name': 'RandomForest'
+          }, 
+          'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}"
+        }
+      ]
+    }, 
+  'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'ema100'}}, {'indicator': {'name': 'ma200'}}], 'strategy': {'buy_strategy': {'name': 'Incremental Buys'}, 'rules': [{'order_type': True, 'first_indicator': {'name': 'lowerband'}, 'second_indicator': {'name': 'fastd'}, 'value': 0.0, 'condition': {'name': 'Below'}}, {'order_type': False, 'first_indicator': {'name': 'ema55'}, 'second_indicator': {'name': 'ema55'}, 'value': 0.0, 'condition': {'name': 'Minor'}}], 'strategy_metrics': [{'portfolio_metric': {'name': '% Profit'}}, {'portfolio_metric': {'name': 'Abs Drawdown'}}, {'portfolio_metric': {'name': 'Jensen Alpha'}}], 'strategy_parameters': {'backtest': {'backtest_initial_max': '10,14', 'backtest_distance': '8', 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 30}, 'target': {'target_profit': '0.015', 'target_risk': '0.015', 'target_risk_candles': 16, 'target_profit_candles': 8}}, 'strategy_pairs': [{'pair': {'name': 'AAVEBTC'}}, {'pair': {'name': 'ADABTC'}}, {'pair': {'name': 'ATOMBTC'}}]}, 'train_data_start': '09/10/2022', 'trading_setup': {'api_secret': 'dfgsdf gsdfgsdfgfsd', 'api_key': 'fgsdfgsdf gsfgs dff', 'exchange': 'binance', 'capital': 9999.9999, 'id': 1, 'currency_base': 'dolar', 'exchange_comission': 0.01}, 'backtest_data_end': '09/10/2022', 'timeframe': '15m', 'train_data_end': '09/10/2022', 'id': 1, 'backtest_data_start': '09/10/2022'}
+
+  resultados = f"""###################
+                  Modelo: {str(mod['name'])}| Model_file: {str(nombre_modelo)} | Escaler_file: {str(nombre_scaler)} | 
+                  F1: {f1} | Accuracy: {accu} | Precision: {prec} | Sensibilidad: {rec} | Especificidad: {spec} | ROC: {roc} | VN: {tn} |
+                  VP: {tp} | FN: {fn} | FP: {fp} | BACK_CONF: {str(backtest_conf)} | PROFIT: {float(profit)} | N_BUYS: {int(n_buys)} | N_BUYS_ACUM: {int(n_buysacum)} |
+                  FONDOS: {str(chart_fondos)} | GRAFICO: {str(chart_candles)} """
+  f = open("resultadoTrainAll.txt", "a")
+  f.write(resultados + ";")
+  f.close()
+
+
+  sql = f"""INSERT INTO MODEL(train_id,model_name,model_file,scaler_file,parameters,best_params,
+                        f1,accuracy,precision,recall,specificity,roc,tn,tp,fn,fp,
+                        backtest_name,backtest_conf,indicator_conf, prepare_conf, target_conf,profit,n_buys,n_buysacum,
+                        chart_fondos,chart_candles, type_evaluation)
+                        VALUES({int(self.train_id)},"{str(mod['name'])}","{str(nombre_modelo)}","{str(nombre_scaler)}","{str(mod['parameters'])}",
+                        "{str(best_params)}",{f1},{accu},{prec},{rec},{spec},{roc},{tn},{tp},{fn},
+                        {fp}, "{str(backtest_name)}", "{str(backtest_conf)}", "{str(config.indicators)}", "{str(config.prepare_data)}", "{str(config.target)}", {float(profit)},
+                        {int(n_buys)}, {int(n_buysacum)}, "{str(chart_fondos)}", "{str(chart_candles)}", 'One models')"""
+
+
+
+
+                        {'backtest': {
+                            'backtest_initial_max': '1014', 
+                            'backtest_distance': 8, 
+                            'backtest_loss': '0', 
+                            'backtest_max_capital_per_pair': '0.1'
+                          }, 
+                          'filter': {
+                            'filter_drop_rsi_above': 30
+                          }, 
+                          'target': {
+                            'target_profit': 0.012, 
+                            'target_risk': 0.015, 
+                            'target_risk_candles': 12, 
+                            'target_profit_candles': 8
+                          }
+                        }
+
+                        {'backtest': {
+                            'backtest_initial_max': [10, 14], 
+                            'backtest_distance': 8, 
+                            'backtest_loss': '0', 
+                            'backtest_max_capital_per_pair': '0.1'
+                          }, 
+                          'filter': {
+                            'filter_drop_rsi_above': 30
+                          }, 
+                          'target': {
+                            'target_profit': 0.012, 
+                            'target_risk': 0.015, 
+                            'target_risk_candles': 12, 
+                            'target_profit_candles': 8
+                          }
+                        }
+
+                        [
+                          {
+                            "scaler": "./models/scalers/_1_17102022100500PM.joblib",
+                            "model": {
+                              "name": "RandomForest",
+                              "file": "./models/RandomForest_17102022100500PM.joblib",
+                              "metrics": [
+                                {
+                                  "name": "F1-score",
+                                  "value": 0.13333333333333336
+                                },
+                                {
+                                  "name": "ROC",
+                                  "value": 0.5382882282362351
+                                },
+                                {
+                                  "name": "Specificity",
+                                  "value": 0.9996533795493934
+                                },
+                                {
+                                  "name": "Accuracy",
+                                  "value": 0.9955141476880607
+                                },
+                                {
+                                  "name": "Recall",
+                                  "value": 0.07692307692307693
+                                },
+                                {
+                                  "name": "Precision",
+                                  "value": 0.5
+                                },
+                                {
+                                  "name": "TP",
+                                  "value": 2
+                                },
+                                {
+                                  "name": "TN",
+                                  "value": 5768
+                                },
+                                {
+                                  "name": "FP",
+                                  "value": 2
+                                },
+                                {
+                                  "name": "FN",
+                                  "value": 24
+                                }
+                              ],
+                              "model_best_parameters": {
+                                "min_samples_split": 4,
+                                "n_estimators": 800,
+                                "random_state": 0
+                              }
+                            },
+                            "backtest": [
+                              {
+                                "pair": "BNBBTC",
+                                "chart_candles": "./data/backtest/chart_17102022100755PM.html",
+                                "chart_funds": "./data/backtest/fondos_17102022100755PM.html",
+                                "metrics": [
+                                  {
+                                    "name": "% Profit",
+                                    "value": 0.09312857117159999
+                                  },
+                                  {
+                                    "name": "Max Drawdown",
+                                    "value": -0.07057314200000006
+                                  },
+                                  {
+                                    "name": "N Buys",
+                                    "value": 1
+                                  },
+                                  {
+                                    "name": "N BuysAcum",
+                                    "value": 1
+                                  }
+                                ]
+                              },
+                              {
+                                "pair": "ETHBTC",
+                                "chart_candles": "./data/backtest/chart_17102022100809PM.html",
+                                "chart_funds": "./data/backtest/fondos_17102022100809PM.html",
+                                "metrics": [
+                                  {
+                                    "name": "% Profit",
+                                    "value": 0.01815017722396053
+                                  },
+                                  {
+                                    "name": "Max Drawdown",
+                                    "value": -0.8188605067469008
+                                  },
+                                  {
+                                    "name": "N Buys",
+                                    "value": 23
+                                  },
+                                  {
+                                    "name": "N BuysAcum",
+                                    "value": 2
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "scaler": "./models/scalers/_1_17102022100500PM.joblib",
+                            "model": {
+                              "name": "XGBoost",
+                              "file": "./models/XGBoost_17102022100819PM.joblib",
+                              "metrics": [
+                                {
+                                  "name": "F1-score",
+                                  "value": 0.3428571428571429
+                                },
+                                {
+                                  "name": "ROC",
+                                  "value": 0.6151246500466605
+                                },
+                                {
+                                  "name": "Specificity",
+                                  "value": 0.9994800693240902
+                                },
+                                {
+                                  "name": "Accuracy",
+                                  "value": 0.996031746031746
+                                },
+                                {
+                                  "name": "Recall",
+                                  "value": 0.23076923076923078
+                                },
+                                {
+                                  "name": "Precision",
+                                  "value": 0.6666666666666666
+                                },
+                                {
+                                  "name": "TP",
+                                  "value": 6
+                                },
+                                {
+                                  "name": "TN",
+                                  "value": 5767
+                                },
+                                {
+                                  "name": "FP",
+                                  "value": 3
+                                },
+                                {
+                                  "name": "FN",
+                                  "value": 20
+                                }
+                              ],
+                              "model_best_parameters": {
+                                "learning_rate": 0.1,
+                                "n_estimators": 1200,
+                                "objective": "binary:logistic",
+                                "random_state": 0
+                              }
+                            },
+                            "backtest": [
+                              {
+                                "pair": "BNBBTC",
+                                "chart_candles": "./data/backtest/chart_17102022101056PM.html",
+                                "chart_funds": "./data/backtest/fondos_17102022101056PM.html",
+                                "metrics": [
+                                  {
+                                    "name": "% Profit",
+                                    "value": 0.048196988666289325
+                                  },
+                                  {
+                                    "name": "Max Drawdown",
+                                    "value": -0.5189921290789489
+                                  },
+                                  {
+                                    "name": "N Buys",
+                                    "value": 10
+                                  },
+                                  {
+                                    "name": "N BuysAcum",
+                                    "value": 1
+                                  }
+                                ]
+                              },
+                              {
+                                "pair": "ETHBTC",
+                                "chart_candles": "./data/backtest/chart_17102022101109PM.html",
+                                "chart_funds": "./data/backtest/fondos_17102022101109PM.html",
+                                "metrics": [
+                                  {
+                                    "name": "% Profit",
+                                    "value": 0.026837474875216892
+                                  },
+                                  {
+                                    "name": "Max Drawdown",
+                                    "value": -0.7321609293890531
+                                  },
+                                  {
+                                    "name": "N Buys",
+                                    "value": 18
+                                  },
+                                  {
+                                    "name": "N BuysAcum",
+                                    "value": 1
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                        [{'scaler': './models/scalers/_1_17102022101837PM.joblib', 
+                        'model': {'name': 'RandomForest', 'file': './models/RandomForest_17102022101837PM.joblib', 
+                        'metrics': [{'name': 'F1-score', 'value': 0.13333333333333336}, {'name': 'ROC', 'value': 0.5382882282362351}, {'name': 'Specificity', 'value': 0.9996533795493934}, {'name': 'Accuracy', 'value': 0.9955141476880607}, {'name': 'Recall', 'value': 0.07692307692307693}, {'name': 'Precision', 'value': 0.5}, {'name': 'TP', 'value': 2}, {'name': 'TN', 'value': 5768}, {'name': 'FP', 'value': 2}, {'name': 'FN', 'value': 24}], 'model_best_parameters': {'min_samples_split': 4, 'n_estimators': 800, 'random_state': 0}}, 'backtest': [{'pair': 'BNBBTC', 'chart_candles': './data/backtest/chart_17102022102138PM.html', 'chart_funds': './data/backtest/fondos_17102022102138PM.html', 'metrics': [{'name': '% Profit', 'value': 0.09054453558615629}, {'name': 'Max Drawdown', 'value': -0.09636192029784144}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './data/backtest/chart_17102022102152PM.html', 'chart_funds': './data/backtest/fondos_17102022102152PM.html', 'metrics': [{'name': '% Profit', 'value': 0.030903329002983284}, {'name': 'Max Drawdown', 'value': -0.6915835428843983}, {'name': 'N Buys', 'value': 23}, {'name': 'N BuysAcum', 'value': 2}]}]}, {'scaler': 
+                        './models/scalers/_1_17102022101837PM.joblib', 'model': {'name': 'XGBoost', 'file': './models/XGBoost_17102022102203PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.3428571428571429}, {'name': 'ROC', 'value': 0.6151246500466605}, {'name': 'Specificity', 'value': 0.9994800693240902}, {'name': 'Accuracy', 'value': 0.996031746031746}, {'name': 'Recall', 'value': 0.23076923076923078}, {'name': 'Precision', 'value': 0.6666666666666666}, {'name': 'TP', 'value': 6}, {'name': 'TN', 'value': 5767}, {'name': 'FP', 'value': 3}, {'name': 'FN', 'value': 20}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'BNBBTC', 'chart_candles': './data/backtest/chart_17102022102434PM.html', 'chart_funds': './data/backtest/fondos_17102022102434PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06037266421814882}, {'name': 'Max Drawdown', 'value': -0.39747840101647886}, {'name': 'N Buys', 'value': 10}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './data/backtest/chart_17102022102446PM.html', 'chart_funds': './data/backtest/fondos_17102022102446PM.html', 'metrics': [{'name': '% Profit', 'value': 0.0402548708345755}, {'name': 'Max Drawdown', 'value': -0.5982547820900649}, {'name': 'N Buys', 'value': 18}, {'name': 'N BuysAcum', 'value': 1}]}]}]
+
+                        "[{'id': 1, 'checksum': 'fccd2b1f7671c0cb52aca478e72934a1', 'backtest': "{'backtest_initial_max': [10, 14], 'backtest_distance': 8, 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}", 'filter': "{'filter_drop_rsi_above': 30}", 'target': "{'target_profit': 0.012, 'target_risk': 0.015, 'target_risk_candles': 12, 'target_profit_candles': 8}"}, 
+                        {'id': 2, 'checksum': '459195183cc82306ec19afddee883fee', 'backtest': "{'backtest_initial_max': [15, 20], 'backtest_distance': 8, 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}", 'filter': "{'filter_drop_rsi_above': 30}", 'target': "{'target_profit': 0.012, 'target_risk': 0.015, 'target_risk_candles': 12, 'target_profit_candles': 8}"}]"
+
+
+                        {'trading_setup': {'id': 1, 'api_key': 'dsfagasdfadfgdsfgsdfghsdfghsdf', 'api_secret': 'sdfgsdfgsdfg', 'currency_base': 'bitcoin', 'exchange_comission': 0.01, 'exchange': 'binance', 'capital': 0.1002}, 'id': 4, 'train_indicators': [{'indicator': {'name': 'adx'}}, {'indicator': {'name': 'rsi'}}], 'backtest_data_start': '01/10/2022', 'strategy': {'strategy_parameters': {'backtest': {'backtest_initial_max': [10, 14], 'backtest_distance': 8, 'backtest_loss': '0', 'backtest_max_capital_per_pair': '0.1'}, 'filter': {'filter_drop_rsi_above': 30}, 'target': {'target_profit': 0.015, 'target_risk': 0.015, 'target_risk_candles': 16, 'target_profit_candles': 8}}, 'buy_strategy': {'name': 'Incremental Buys'}, 'strategy_pairs': [{'pair': {'name': 'BNBBTC'}}, {'pair': {'name': 'ETHBTC'}}], 'rules': [{'first_indicator': {'name': 'rsi'}, 'second_indicator': {'name': 'value'}, 'condition': {'name': 'Below'}, 'order_type': True, 'value': 30.0}], 'strategy_metrics': [{'portfolio_metric': {'name': '% Profit'}}]}, 'train_data_end': '20/10/2022', 'train_data_start': '01/09/2022', 'training_detail': {'training_metrics': [{'model_metric': {'name': 'Accuracy'}}, {'model_metric': {'name': 'F1-score'}}, {'model_metric': {'name': 'FN'}}, {'model_metric': {'name': 'FP'}}, {'model_metric': {'name': 'Precision'}}, {'model_metric': {'name': 'ROC'}}, {'model_metric': {'name': 'Recall'}}, {'model_metric': {'name': 'Specificity'}}, {'model_metric': {'name': 'TN'}}, {'model_metric': {'name': 'TP'}}], 'algorithm_details': [{'algorithm': {'name': 'RandomForest'}, 'parameters': "{'n_stimators': '[800, 1000]', 'min_samples_split': '[4]', 'cv': '5', 'random_state': '0'}"}, {'algorithm': {'name': 'XGBoost'}, 'parameters': '{\'learning_rate\': \'[0.1]\', \'objective\': "[\'binary:logistic\']", \'cv\': \'5\', \'n_estimators\': \'[1000, 1200]\', \'random_state\': \'0\'}'}], 'data_split': 20.0}, 'timeframe': '15m', 'backtest_data_end': '20/10/2022'}

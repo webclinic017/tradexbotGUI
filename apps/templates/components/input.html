@@ -1,0 +1,6 @@
+{% macro input(id, name, type="text", label="", required=False, placeholder="", value="", min="",max="", step="") %}
+    <div class="form-group">
+        <label for="{{id}}">{{label}}</label>  
+        <input class="form-control" type="{{type}}" name="{{name}}" id="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" {% if required %} required {% endif %} placeholder="{{placeholder}}" value="{{value}}">
+    </div>
+{% endmacro %}

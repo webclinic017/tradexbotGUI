@@ -1,0 +1,5 @@
+{% macro nav_item(id,text, active=False) %}
+    <li class="nav-item">
+        <a class="nav-link {% if active %} active {% endif %}" id="{{id}}-tab" data-toggle="pill" href="#{{id}}" role="tab" aria-controls="{{id}}" aria-selected="true">{{text}}</a>
+    </li>
+{% endmacro %}

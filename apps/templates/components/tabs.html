@@ -1,0 +1,19 @@
+{% macro tabs(nav_items, tab_panes) %}
+<div class="row">
+    <div class="col-12 col-sm-12">
+      <div class="card card-primary card-tabs">
+        <div class="card-header p-0 pt-1">
+          <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+            {{nav_items}}
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="custom-tabs-one-tabContent">
+            {{tab_panes}}         
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+</div>
+{% endmacro %}

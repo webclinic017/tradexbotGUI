@@ -1,0 +1,33 @@
+{% macro simple_table(header, body, title, id, class='head-fixed', column_width=False, height='300px;') %}
+<div class="row w-100">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{title}}</h3>
+        <div class="card-tools">
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body table-responsive p-0" style="height:{{height}}">
+        <table id="{{id}}" class="table table-{{class}} text-nowrap">
+          <thead>
+            <tr>
+              {% for item in header %}
+              <th {% if (loop.index < 3 and column_width) %} style="width: 25%;" {% endif %} {% if (loop.index==4 and
+                column_width) %} style="width: 15%;" {% endif %}>{{item}}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in body %}
+            {{ caller(item,header, loop.index) }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+{% endmacro %}

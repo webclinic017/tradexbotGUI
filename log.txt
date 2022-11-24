@@ -1,0 +1,13 @@
+#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Error
+######## Message is Error 

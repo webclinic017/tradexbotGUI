@@ -1,0 +1,117 @@
+{% extends "layouts/base.html" %}
+{% import 'components/simple-table.html' as x_table %}
+{% from 'components/button.html' import button %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Bots list</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    {% set header = ["Name","Status","Options"] %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            {% call(row,head,index) x_table.simple_table(header, bots, "Bots" , "table_bots", height="auto") %}
+            <tr data-index="{{index}}">
+                {% for item in head %}
+                    <td>
+                        {% if item|lower != "options" %}
+                            {{ row[item|lower] }}
+                        {% else %}
+                            <span class="btn btn-sm btn-success btn-run-bot" title="Run Bot" data-uuid="{{row.uuid}}" data-status="{{row.status}}" data-id="{{row.id}}" data-task="{{row.task_id}}">
+                                <i 
+                                {% if row.status =="stopped" %}
+                                    class="fa fas fa-play"
+                                {% else %}
+                                    class="fa fas fa-stop"
+                                {% endif %}
+                                ></i>
+                            </span>
+                            <a href="/autotrade/results/{{row.id}}/{{row.uuid}}" title="Bot results" class="btn btn-sm btn-secondary" ><i class="fa fas fa-chart-line"></i></a>
+                            <a href="/autotrade/delete/{{row.id}}/{{row.uuid}}" class="btn btn-sm btn-danger"><i class="fa fas fa-trash"></i></a>
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endcall %}
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+    $(document).ready(function(){
+        $('.btn-run-bot').on('click', function(e){
+            formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('task_id', $(this).data('task'));
+            formData.append('uuid', $(this).data('uuid'));
+            formData.append('status', $(this).data('status'));
+            var element = $(this);
+            $.ajax({
+                url: "/autotrade/run",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    console.log(data);
+                    console.log(data.success);
+                    console.log(data.status);
+                    console.log(data.task_id);
+                    if (data.success){
+                        element.attr('data-status',data.status);
+                        element.attr('data-task',data.task_id);
+                        console.log(data.status)
+                        element.parent().prev().text(data.status)
+                        if(data.status == "running"){
+                            console.log("running");
+                            toastr.success('Bot started successfully.')                            
+                            element.empty();
+                            console.log("emptied");
+                            element.append('<i class="fa fas fa-stop"></i>');
+                            console.log("iconned");
+                        }else{
+                            console.log("stopped");                           
+
+                            toastr.success('Bot stopped successfully.')
+                            element.empty();
+                            console.log("emptied");
+                            element.append('<i class="fa fas fa-play"></i>');
+                            
+                            console.log("iconned");
+                        }
+                    }else{
+                        toastr.error('Action failed!')
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock javascripts %}

@@ -1,0 +1,37 @@
+{% macro checkbox(id, name, value, label, checked=False, required=False) %}
+<div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input class="custom-control-input" type="checkbox" id="{{id}}" name="{{name}}" {% if checked %}
+        checked
+      {% endif %}  value="{{value}}" {% if required %} required {% endif%}>
+      <label for="{{id}}" class="custom-control-label">{{label}}</label>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro checkbox_inputs(id, name, value, label, inputs, checked=False, required=False) %}
+<div class="row border p-4 mb-2">
+  <div class="col-md-2">
+    <div class="form-group">
+      <div class="custom-control custom-checkbox">
+        <input class="custom-control-input" type="checkbox" id="{{id}}" name="{{name}}" {% if checked %}
+          checked
+        {% endif %}  value="{{value}}" {% if required %} required {% endif%}>
+        <label for="{{id}}" class="custom-control-label">{{label}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="row border p-4">
+      {% for item in inputs.items() %}
+        <div class="col-auto">
+          <div class="form-group">
+            <label>{{item[0]}}</label>
+            <input type="text" class="form-control {{label|lower}}" id="{{item[0]}}" name="{{value}}_{{item[0]}}" value="{{item[1]}}" placeholder="Enter ..." required>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}

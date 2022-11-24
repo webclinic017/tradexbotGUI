@@ -1,0 +1,132 @@
+{% extends "layouts/base.html" %}
+{% from 'components/tabs.html' import tabs %}
+{% from 'components/tab-pane.html' import tab_pane %}
+{% from 'components/nav-item.html' import nav_item %}
+{% from 'components/select.html' import select %}
+{% from 'components/button.html' import button %}
+{% from 'components/simple-table.html' import simple_table %}
+{% from 'components/card.html' import card %}
+{% from 'components/slider.html' import slider %}
+{% from 'components/checkbox.html' import checkbox, checkbox_inputs %}
+{% from 'components/textarea.html' import textarea %}
+{% from 'components/input.html' import input %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit Training Setup</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            {# Variables definition #}
+            <form action="/trainer/edit" method="post">
+                {% set card_body_model_metrics %}
+                    <div class="row">
+                        <div class="col-12">
+                            {% for item in model_metrics %}
+                                {% if item.id in training_metrics %}
+                                    {{checkbox(item.name,"model_metrics[]",item.id,item.name, checked=True)}}                            
+                                {% else %}
+                                    {{checkbox(item.name,"model_metrics[]",item.id,item.name)}}                          
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endset %}
+                {% set card_body_algorithms %}
+                    <div class="row">
+                        <div class="alert alert-info">
+                            <h5><i class="icon fas fa-info"></i> Important!</h5>
+          
+                            <p>Only variables that have square brackets (ie. ['val1','val2']) can have multiple values of the same type separated by commas. These multiple values will be used to generate new individual configurations for training with the GridSearchCV technique.</p>
+                          </div>
+                        <div class="col-12">
+                            {% for item in algorithms %}
+                                {% if item.id in training_algorithms %}
+                                    {{checkbox_inputs(item.name,"algorithms[]",item.id,item.name,training_algorithms_parameters[item.id],checked=True)}}
+                                {% else %}
+                                    {{checkbox_inputs(item.name,"algorithms[]",item.id,item.name,item.parameters)}}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endset %}
+                {% set card_body_split_data %}
+                    <div class="row">
+                        <div class="col-12">
+                            {{slider("split_data","split_data","Test data %",value=training_detail.data_split)}}
+                        </div>
+                    </div>
+                {% endset %}
+                {% set card_body_info %}
+                    {{ input("name","name",label="Set a name",placeholder="Training name", required=True, value=training_detail.name) }}
+                    {{ textarea("description","description",label="Description",placeholder="Training description", value=training_detail.description) }}
+                {% endset %}
+                <input type="hidden" name="training_detail_id" value="{{training_detail.id}}">
+                <div class="row justify-content-end mb-4">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-lg btn-primary"><i class="fa fas fa-save mr-2"></i>Save</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{card("Training information", card_body_info)}}
+                            </div>
+                            <div class="col-md-12">
+                                {{card("Test and Train data", card_body_split_data)}}    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        {{card("Select models to use", card_body_algorithms)}}
+                    </div>
+                    <div class="col-md-2">
+                        {{card("Select models metrics", card_body_model_metrics)}}
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script>
+        $('#split_data').ionRangeSlider({
+            min     : 10,
+            max     : 90,
+            from    : 10,
+            type    : 'single',
+            step    : 5,
+            postfix : '%',
+            prettify: false,
+            hasGrid : true
+        })
+    </script>
+{% endblock javascripts %}

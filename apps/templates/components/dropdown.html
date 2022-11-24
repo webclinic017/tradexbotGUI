@@ -1,0 +1,10 @@
+{% macro dropdown(id="", label="Action", type="primary", icon=None) %}
+    <div class="btn-group">
+        <button id="{{id}}" type="button" class="btn btn-{{type}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {% if icon %}<i class="fa fas fa-{{icon}}"></i>{% endif %}&nbsp;&nbsp;{{label}}
+        </button>
+        <div class="dropdown-menu">
+            {{caller()}}
+        </div>
+    </div>
+{% endmacro %}

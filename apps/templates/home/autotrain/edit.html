@@ -1,0 +1,117 @@
+{% extends "layouts/base.html" %}
+{% from 'components/select.html' import select %}
+{% from 'components/button.html' import button %}
+{% from 'components/card.html' import card %}
+{% from 'components/textarea.html' import textarea %}
+{% from 'components/input.html' import input %}
+{% from 'components/daterange.html' import daterange %}
+
+{% block title %} AutoTraining {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+<link rel="stylesheet" href="/static/assets/plugins/daterangepicker/daterangepicker.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit AutoTraining</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            {# Variables definition #}
+            <form action="/autotrain/edit" method="post">
+                {% set timeframe = [{"id":"5m","name":"5m"},{"id":"15m","name":"15m"},{"id":"30m","name":"30m"},{"id":"1h","name":"1hm"},{"id":"4h","name":"4h"},{"id":"1d","name":"1d"}] %}
+                
+                {% set card_body_model_design %}
+                    <div class="row">
+                        <div class="col-2">
+                            {{ input("name","name",label="Set a name",placeholder="Training name", required=True, value=training.name) }}
+                            {{ textarea("description","description",label="Description",placeholder="Training description", value=training.description) }}
+                        </div>
+                        <div class="col-4">
+                            {{ select(strategies, "strategy", "strategy", label="Set strategy", default=False,required=True, selected=training.strategy_id)}}
+                            {{ select(training_details, "training", "training", label="Set training setup", default=False,required=True, selected=training.training_detail_id)}}
+                            {{ select(trading_settings, "trading", "trading", label="Set trading setup", default=False,required=True, selected=training.trading_setup_id)}}
+                        </div>
+                        <div class="col-md-4">
+                            {{ select(timeframe, "timeframe", "timeframe", label="Timeframe", default=False,required=True, selected=training.timeframe)}}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{daterange("train_data", "train_data", label="Training data time range", required=True, value=training.train_data_start+" - "+training.train_data_end)}}
+                                </div>
+                                <div class="col-md-6">
+                                    {{daterange("backtest_data", "backtest_data", label="Backtesting data time range", required=True, value=training.backtest_data_start+" - "+training.backtest_data_end)}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Extra indicators to train</label>
+                                <select class="duallistbox" multiple="multiple" id="indicators" name="indicators[]">
+                                    {% for item in indicators %}
+                                        <option value="{{item.id}}" {% if item.id in autotrain_indicators %} selected {% endif %}>{{item.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                {% endset %}
+                <input type="hidden" name="training_id" value="{{training.id}}">
+                <div class="row justify-content-end mb-4">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-lg btn-primary"><i class="fa fas fa-save mr-2"></i>Save</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{card("Edit training", card_body_model_design)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script src="/static/assets/plugins/moment/moment.min.js"></script>
+<script src="/static/assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script>
+        $('.duallistbox').bootstrapDualListbox()
+        $('#train_data').daterangepicker({
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    })
+        $('#backtest_data').daterangepicker({
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    })
+        
+    </script>
+{% endblock javascripts %}

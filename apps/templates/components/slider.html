@@ -1,0 +1,6 @@
+{% macro slider(id, name, label="", value="") %}
+    <div class="form-group">
+        <label>{{label}}</label>
+        <input id="{{id}}" type="text" name="{{name}}" value="{{value}}" required>
+    </div>
+{% endmacro %}

@@ -1,0 +1,9 @@
+{% macro button(text, id, icon="", type="button", class='primary', uri="", dataid="") %}
+    {% if uri != "" %}
+        <a href="{{uri}}">
+            <button id="{{id}}" type="{{type}}" class="btn btn-sm bg-gradient-{{class}}" data-id="{{dataid}}">{% if icon !="" %}<i class="fa fas fa-{{icon}}"></i>{% endif %}{{text}}</button>
+        </a>
+    {% else %}
+        <button id="{{id}}" type="{{type}}" class="btn btn-sm bg-gradient-{{class}}" data-id="{{dataid}}">{% if icon !="" %}<i class="fa fas fa-{{icon}}"></i>{% endif %}{{text}}</button>
+    {% endif %}
+{% endmacro %}

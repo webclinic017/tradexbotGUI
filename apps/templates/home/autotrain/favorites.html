@@ -1,0 +1,203 @@
+{% extends "layouts/base.html" %}
+{% import 'components/simple-table.html' as x_table %}
+{% from 'components/button.html' import button %}
+{% from 'components/dropdown.html' import dropdown %}
+{% from 'components/modal.html' import modal %}
+{% from 'components/left-nav.html' import lefttabs, nav_item, tab_pane %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">        
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Train Results</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    {% set metrics_name = ["F1-score","ROC", "Specificity", "Accuracy", "Recall", "Precision", "TP", "TN", "FP", "FN"] %}
+    {% set header = ["Train", "Model"]+metrics_name %}
+    {% set resume_content %}
+        {% call(row,head,index) x_table.simple_table(header, trains, "Trainings results" , "table_train_results", class="hover", height="auto") %}
+            <tr>
+                <td rowspan="1">{{index}}</td>
+                {% set name = row.model.split('/')[3].split("_") %}
+                <td>{{name[0]}}</td>
+                {% for trainmetric in row.get_metrics_value() %}
+                    <td>
+                        {{trainmetric|round(3, 'common')}}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endcall %}
+    {% endset %}
+    {% set base_struct %}
+        <div class="row justify-content-between p-2">
+            <div class="col-auto">
+                    <button type="button" class="btn btn-success" name="trainmodel_name" id="trainmodel_name">ModelName</button>
+                    <button type="button" class="btn btn-outline-danger" id="favorite" data-value="0"><i class="fas fa-star" style="margin-right:5px"></i><span>Remove from favorites</span></button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-warning" id="autobot" data-id=""><i class="fas fa-robot" style="margin-right:5px"></i><span>create BOT</span></button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto pairs">
+                <div class="btn-group">          
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    </div>                         
+                </div>
+            </div>
+        </div>
+        <div class="row charts-row p-2">
+            <div class="col-md-6 chart-candle">
+            </div>
+            <div class="col-md-6 chart-funds">
+            </div>
+        </div>
+        <div class="row metrics-row justify-content-center p-2">
+            
+        </div>
+    {% endset %}
+    <section class="content">
+        <div class="container-fluid">
+            {% set nav_items %}
+                {{nav_item("resume","Resume","resume", active=True)}}
+                {% for train in trains %}
+                    {{nav_item("train_"+train.id|string,"Train "+train.id|string+" ["+train.model.split('/')[3].split("_")[0]+"]", "backtest_tab", dataid=train.id|string, active=False, class="backtest")}}
+                {% endfor %}
+            {% endset %}
+            {% set tab_panes %}
+                {{tab_pane(resume_content,"resume", active=True)}}
+                {{tab_pane(base_struct,"backtest_tab", dataid="", active=False)}}
+            {% endset %}
+            {{lefttabs("Results",nav_items,tab_panes)}}
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+<script src="/static/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table_train_results').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        }); 
+        $(document).on('click','.backtest', function(e){
+            const trainmodel_id = $(this).data("id");
+            const pair_name = $('#backtest_tab .pairs .active input').val();
+            console.log(trainmodel_id);
+            console.log(pair_name);
+            $.get(`/favorite/backtest/${trainmodel_id}/${pair_name?pair_name:'name'}`).then( result => {
+                console.log(result);
+                try{
+                    metricHtml = "";
+                    pairsHtml = "";
+                    $(".metrics-row").empty();
+                    $(".pairs .btn-group-toggle").empty();
+                    $.each(result.metrics, (i,item)=>{
+                        metricHtml+=`<div class="col-md-2">
+                                        <div class="small-box bg-info">
+                                            <div class="inner">
+                                            <h3>${item.value}</h3>
+                                            <p>${item.name}</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                    
+                    });
+                    $.each(result.pairs, (i,item)=>{
+                        console.log(item);
+                        pairsHtml+=`<label class="btn btn-info ${item == pair_name? 'active':(i==0 && !pair_name?'active':'')}">
+                                <input class="btn-pair backtest" type="radio" name="pair_options" value="${item}" data-id="${trainmodel_id}" autocomplete="off"> ${item}
+                            </label>`;
+                    
+                    });
+                    $(".metrics-row").append(metricHtml);
+                    $(".pairs .btn-group-toggle").append(pairsHtml);
+                    $(".charts-row .chart-candle").empty();
+                    $(".charts-row .chart-funds").empty();
+                    $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="500px">`);
+                    $(".charts-row .chart-funds").append(`<embed src="${result.chart_funds}" type="text/html" width="100%" height="500px">`);
+                    $('#trainmodel_name').html(result.model_name);
+                    $('#autobot').attr('data-id',result.id);
+                    if(result.has_bot){
+                        $('#autobot').removeClass('btn-outline-warning').addClass('btn-warning');
+                        $('#autobot span').html('Bot created!');
+                        $('#autobot').prop('disabled', true);
+                    }else{
+                        $('#autobot').removeClass('btn-warning').addClass('btn-outline-warning');
+                        $('#autobot span').html('create BOT');
+                        $('#autobot').prop('disabled', false);
+                    }
+                }catch(error){
+                    console.error(error)
+                }
+
+            });
+        });
+        $('#favorite').on('click', function(e){
+            const training_id = $('.nav-link.backtest.active').data("id");        
+            $.get(`/favorite/remove/${training_id}`).then( result => {
+                location.reload()
+            });
+        });
+        $('#autobot').on('click',function(e){
+            let train_model_id = $(this).attr('data-id');
+            let name =  $('.nav-link.backtest.active').html();
+            formData = new FormData
+            formData.append("id",train_model_id);
+            formData.append("name",name);
+            $.ajax({
+                url: "/autotrade/add",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    console.log(data);
+                    if(data.success){
+                        toastr.success('Bot was created successfully!');
+                        $('#autobot').removeClass('btn-outline-warning').addClass('btn-warning');
+                        $('#autobot span').html('create BOT');
+                        $('#autobot').prop('disabled', false);
+                    }else{
+                        toastr.error(data.message);
+                    }
+                }
+            });
+        });
+    });
+</script>
+{% endblock javascripts %}

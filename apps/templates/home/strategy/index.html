@@ -1,0 +1,63 @@
+{% extends "layouts/base.html" %}
+{% import 'components/simple-table.html' as x_table %}
+{% from 'components/button.html' import button %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Strategies creator</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    {% set header = ["Name","Description", "Active", "Options"] %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-end mb-4">
+                <div class="col-auto">
+                    {{ button("Nuevo", "btn_nuevo",uri="/strategy/new") }}
+                </div>
+            </div>
+            {% call(row,head,index) x_table.simple_table(header, strategies, "Strategies" , "table_strategies") %}
+            <tr data-index="{{index}}">
+                {% for item in head %}
+                    <td>
+                        {% if item|lower != "options" %}
+                            {{ row[item|lower] }}
+                        {% else %}
+                            <a href="/strategy/edit/{{row.id}}" class="btn btn-sm btn-secondary"><i class="fa fas fa-edit"></i></a>
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endcall %}
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script src="/static/assets/js/strategy.js"></script>
+
+{% endblock javascripts %}

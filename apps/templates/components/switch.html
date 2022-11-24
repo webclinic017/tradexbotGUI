@@ -1,0 +1,3 @@
+{% macro switch(id, name, checked=False)  %}
+    <input type="checkbox" id="{{id}}" name="{{name}}" data-bootstrap-switch data-off-color="danger" data-on-color="success" {% if checked %} checked {% endif %}>
+{% endmacro %}

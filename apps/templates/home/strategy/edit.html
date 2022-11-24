@@ -1,0 +1,551 @@
+{% extends "layouts/base.html" %}
+{% from 'components/tabs.html' import tabs %}
+{% from 'components/tab-pane.html' import tab_pane %}
+{% from 'components/nav-item.html' import nav_item %}
+{% from 'components/select.html' import select %}
+{% from 'components/button.html' import button %}
+{% from 'components/simple-table.html' import simple_table %}
+{% from 'components/card.html' import card %}
+{% from 'components/checkbox.html' import checkbox %}
+{% from 'components/textarea.html' import textarea %}
+{% from 'components/input.html' import input %}
+
+{% block title %} Strategy {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit strategy</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            {# Variables definition #}
+            {% set buyruledata = [] %}
+            {% for item in buy_rules %}
+                {{buyruledata.append({
+                    "Indicator": select(indicators, "buy_indicator_"+loop.index|string, "buy_indicator_"+loop.index|string, class="buy_indicator", selected=item.first_indicator_id),
+                    "Condition": select(conditions, "buy_condition_"+loop.index|string, "buy_condition_"+loop.index|string, class="buy_condition", selected=item.condition_id),
+                    "Value": select(indicators, "buy_value_"+loop.index|string, "buy_value_"+loop.index|string,class="buy_value",divclass="row", selected=item.second_indicator_id,value=item.value),
+                    "Option": button("","", "trash",dataid=""+loop.index|string, class="danger m-auto btn_eliminar")
+                    })}}
+            {% endfor %}
+            {% set sellruledata = [] %}
+            {% for item in sell_rules %}
+                {{sellruledata.append({
+                    "Indicator": select(indicators, "sell_indicator_"+loop.index|string, "sell_indicator_"+loop.index|string, class="sell_indicator", selected=item.first_indicator_id),
+                    "Condition": select(conditions, "sell_condition_"+loop.index|string, "sell_condition_"+loop.index|string, class="sell_condition", selected=item.condition_id),
+                    "Value": select(indicators, "sell_value_"+loop.index|string, "sell_value_"+loop.index|string, class="sell_value",divclass="row", selected=item.second_indicator_id,value=item.value),
+                    "Option": button("","", "trash",dataid=""+loop.index|string, class="danger m-auto btn_eliminar")
+                    })}}                
+            {% endfor %}
+            {% set card_body_pairs %}
+            <div class="row">
+                <div class="col-12">
+                    {# select([{"id":"5m","name":"5m"},{"id":"15m","name":"15m"},{"id":"30m","name":"30m"},{"id":"1h","name":"1h"},{"id":"4h","name":"4h"},{"id":"1d","name":"1d"},{"id":"1w","name":"1w"}],"timeframe","timeframe",label="Timeframe")
+                    #}
+                    <div class="form-group">
+                        <label>Pairs</label>
+                        <select class="duallistbox" multiple="multiple" id="pairs" name="pairs[]">
+                            {% for item in pairs %}
+                                <option value="{{item.id}}" {% if item.id in strategy_pairs %} selected {% endif %}>{{item.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+            </div>
+            {% endset %}
+            {% set card_body_metrics %}
+            <div class="row">
+                <div class="col-12">
+                    {% for item in metrics %}
+                        {% if item.id in strategy_metrics %}
+                            {{checkbox(item.name,"metrics[]",item.id,item.name,checked=True)}}                            
+                        {% else %}
+                            {{checkbox(item.name,"metrics[]",item.id,item.name)}}                            
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endset %}
+            {% set card_body_strategy %}
+                <div class="row justify-content-middle">
+                    <div class="col-md-12">
+                        <div class="row justify-content-center mb-2">
+                            <div class="col-auto">
+                                {{ select(buy_strategies, "buy_strategy", "buy_strategy", label="Trade strategy",selected=strategy.buy_strategy_id) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 px-4 pb-4 d-none" id="strategy_parameters">
+
+                    </div>
+                </div>
+            {% endset %}
+            {% set card_body_rules %}
+            <input type="hidden" id="strategy_id" name="strategy_id" value="{{strategy.id}}">
+            <div class="row justify-content-middle">
+                <div class="col-md-12">
+                    <div class="row justify-content-end mb-2">
+                        <div class="col-auto">
+                            {{ button("Add", "buy_add", icon="plus") }}
+                        </div>
+                    </div>
+                    {% call(row,head,index) simple_table(["Indicator","Condition","Value","Option"], buyruledata, "Buy
+                    Strategy indicator rules" , "table_buy_rules") %}
+                    <tr data-index="{{index}}">
+                        {% for item in head %}
+                            <td class="p-auto align-middle">
+                                {{ row[item] }}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    {% endcall %}
+                </div>
+                <div class="col-md-12">
+                    <div class="row justify-content-end mb-2">
+                        <div class="col-auto">
+                            {{ button("Add", "sell_add", icon="plus") }}
+                        </div>
+                    </div>
+                    {% call(row,head,index) simple_table(["Indicator","Condition","Value","Option"], sellruledata, "Sell
+                    Strategy indicator rules" , "table_sell_rules") %}
+                    <tr data-index="{{index}}">
+                        {% for item in head %}
+                        <td class="p-auto align-middle">
+                            {{ row[item] }}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endcall %}
+                </div>
+            </div>
+            {% endset %}
+            {% set card_body_info %}
+                {{ input("name","name",label="Set a name",placeholder="Strategy name", required=True, value=strategy.name) }}
+                {{ textarea("description","description",label="Description",placeholder="Strategy description", value=strategy.description) }}
+            {% endset %}
+            <form action="/strategy/edit" method="post">
+                <div class="row justify-content-end mb-4">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-lg btn-primary"><i
+                                class="fa fas fa-save mr-2"></i>Save</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{card("Training information", card_body_info)}}
+                            </div>
+                            <div class="col-md-12">
+                                {{card("Select strategy metrics", card_body_metrics)}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{card("Strategy template", card_body_strategy)}}
+                            </div>
+                            <div class="col-md-12">
+                                {{ card("Buy/Sell rules", card_body_rules) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        {{card("Select pairs", card_body_pairs)}}
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script>
+    function strategy_params_to_inputs(data, label, type=""){
+        let inputHTML = `<label class="mt-3">${label}</label><div class="row border p-3">`;
+        Object.keys(data).forEach(function(key) {
+            inputHTML += `<div class="col-auto">
+                            <div class="form-group">
+                            <label>${key}</label>
+                            <input type="text" class="form-control ${key.toLowerCase()}" id="${key}" name="${type? type+'_':''}${key}" value="${data[key]}" placeholder="Enter ..." required>
+                            </div>
+                        </div>`;
+        })
+        inputHTML += '</div>';
+        return inputHTML;
+    }
+    $(function () {
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+        $('#buy_strategy').on('change', function(e){
+            let id = $(this).val();
+            let strategy_id = $('#strategy_id').val();
+            if(id){
+                let html = `<div class="alert alert-info">
+                    <h5><i class="icon fas fa-info"></i> Important!</h5>            
+                    <p>Only variables that have square brackets (ie. ['val1','val2']) can have multiple values of the same type separated by commas. These multiple values will be used to generate new individual configurations for prepare data and backtesting.</p>
+                </div>`;
+                $.get( `/strategy/${strategy_id}/parameters/${id}`, function( data ) {
+                    console.log(data)
+                    html+=strategy_params_to_inputs(data.parameters.backtest,"Backtest params");
+                    html+=strategy_params_to_inputs(data.parameters.filter,"Dataset filter params");
+                    html+=strategy_params_to_inputs(data.parameters.target,"Dataset Target params");
+                    $('#strategy_parameters').empty().append(html).removeClass('d-none');
+                }).fail(function() {
+                    $.get( `/buystrategy/get/${id}`, function( data ) {
+                        console.log(data)
+                        html+=strategy_params_to_inputs(data.parameters.backtest,"Backtest params","backtest");
+                            html+=strategy_params_to_inputs(data.parameters.filter,"Dataset filter params", "filter");
+                            html+=strategy_params_to_inputs(data.parameters.target,"Dataset Target params", "target");
+                            $('#strategy_parameters').empty().append(html).removeClass('d-none');
+                    });
+                });
+            } else{
+                $('#strategy_parameters').addClass('d-none');
+            }
+        });
+        $(document).on('change','.buy_value', function(e){
+            console.log($(this).val());
+            row_index = $(this).closest('tr').data('index');
+            if($(this).val()==1){
+                $(this).parent().append(`<input class="form-control buy_valueinput col-6" type="number" id="buy_valueinput_${row_index}" name="buy_valueinput_${row_index}" placeholder="Insert value..." required></input>`);
+                $(this).addClass('col-6');
+            }else{
+                $(this).parent().find('.buy_valueinput').remove();
+                $(this).removeClass('col-6');
+            }
+        });
+        $(document).on('change','.sell_value', function(e){
+            console.log($(this).val());
+            row_index = $(this).closest('tr').data('index');
+            if($(this).val()==1){
+                $(this).parent().append(`<input class="form-control sell_valueinput col-6" type="number" id="sell_valueinput_${row_index}" name="sell_valueinput_${row_index}" placeholder="Insert value..." required></input>`);
+                $(this).addClass('col-6');
+            }else{
+                $(this).parent().find('.sell_valueinput').remove();
+                $(this).removeClass('col-6');
+            }
+        });
+        $('#buy_add').on('click', function(e){
+            index = $('#table_buy_rules tbody tr').length;
+            row = `<tr data-index="${index+1}">
+                <td class="p-auto">
+                  <div class="form-group ">
+                    <label></label>
+                    <select class="custom-select buy_indicator" id="buy_indicator_${index+1}" name="buy_indicator_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="3">ao</option>
+                      <option value="32">cci</option>
+                      <option value="52">change</option>
+                      <option value="46">close</option>
+                      <option value="12">ema100</option>
+                      <option value="8">ema13</option>
+                      <option value="13">ema200</option>
+                      <option value="9">ema21</option>
+                      <option value="14">ema400</option>
+                      <option value="10">ema50</option>
+                      <option value="11">ema55</option>
+                      <option value="7">ema9</option>
+                      <option value="42">fastd</option>
+                      <option value="41">fastk</option>
+                      <option value="47">high</option>
+                      <option value="48">low</option>
+                      <option value="4">lowerband</option>
+                      <option value="20">ma100</option>
+                      <option value="16">ma13</option>
+                      <option value="21">ma200</option>
+                      <option value="17">ma21</option>
+                      <option value="22">ma400</option>
+                      <option value="18">ma50</option>
+                      <option value="19">ma55</option>
+                      <option value="15">ma9</option>
+                      <option value="33">macd</option>
+                      <option value="35">macd_hist</option>
+                      <option value="34">macd_signal</option>
+                      <option value="36">mfi</option>
+                      <option value="6">middleband</option>
+                      <option value="37">mom</option>
+                      <option value="44">obv</option>
+                      <option value="45">open</option>
+                      <option value="49">profit</option>
+                      <option value="38">rsi</option>
+                      <option value="31">sar</option>
+                      <option value="40">slowd</option>
+                      <option value="39">slowk</option>
+                      <option value="28">sma100</option>
+                      <option value="24">sma13</option>
+                      <option value="29">sma200</option>
+                      <option value="25">sma21</option>
+                      <option value="30">sma400</option>
+                      <option value="26">sma50</option>
+                      <option value="27">sma55</option>
+                      <option value="23">sma9</option>
+                      <option value="50">stoploss</option>
+                      <option value="5">upperband</option>
+                      <option value="1">value</option>
+                      <option value="51">volume</option>
+                      <option value="43">willr</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <div class="form-group ">
+                    <label></label>
+                    <select class="custom-select buy_condition" id="buy_condition_${index+1}" name="buy_condition_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="1">Below</option>
+                      <option value="4">Crosses Down</option>
+                      <option value="3">Crosses Up</option>
+                      <option value="8">Distinct</option>
+                      <option value="5">Equal</option>
+                      <option value="6">Major</option>
+                      <option value="7">Minor</option>
+                      <option value="9">Reached</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <div class="form-group row">
+                    <label></label>
+                    <select class="custom-select buy_value" id="buy_value_${index+1}" name="buy_value_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="3">ao</option>
+                      <option value="32">cci</option>
+                      <option value="52">change</option>
+                      <option value="46">close</option>
+                      <option value="12">ema100</option>
+                      <option value="8">ema13</option>
+                      <option value="13">ema200</option>
+                      <option value="9">ema21</option>
+                      <option value="14">ema400</option>
+                      <option value="10">ema50</option>
+                      <option value="11">ema55</option>
+                      <option value="7">ema9</option>
+                      <option value="42">fastd</option>
+                      <option value="41">fastk</option>
+                      <option value="47">high</option>
+                      <option value="48">low</option>
+                      <option value="4">lowerband</option>
+                      <option value="20">ma100</option>
+                      <option value="16">ma13</option>
+                      <option value="21">ma200</option>
+                      <option value="17">ma21</option>
+                      <option value="22">ma400</option>
+                      <option value="18">ma50</option>
+                      <option value="19">ma55</option>
+                      <option value="15">ma9</option>
+                      <option value="33">macd</option>
+                      <option value="35">macd_hist</option>
+                      <option value="34">macd_signal</option>
+                      <option value="36">mfi</option>
+                      <option value="6">middleband</option>
+                      <option value="37">mom</option>
+                      <option value="44">obv</option>
+                      <option value="45">open</option>
+                      <option value="49">profit</option>
+                      <option value="38">rsi</option>
+                      <option value="31">sar</option>
+                      <option value="40">slowd</option>
+                      <option value="39">slowk</option>
+                      <option value="28">sma100</option>
+                      <option value="24">sma13</option>
+                      <option value="29">sma200</option>
+                      <option value="25">sma21</option>
+                      <option value="30">sma400</option>
+                      <option value="26">sma50</option>
+                      <option value="27">sma55</option>
+                      <option value="23">sma9</option>
+                      <option value="50">stoploss</option>
+                      <option value="5">upperband</option>
+                      <option value="1">value</option>
+                      <option value="51">volume</option>
+                      <option value="43">willr</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <button id="" type="button" class="btn btn-block bg-gradient-danger w-60 m-auto btn_eliminar" data-id="${index+1}">
+                    <i class="fa fas fa-minus"></i>
+                  </button>
+                </td>
+              </tr>`;
+            $('#table_buy_rules tbody').append(row);
+        })
+        $('#sell_add').on('click', function(e){
+            index = $('#table_sell_rules tbody tr').length;
+            row = `<tr data-index="${index+1}">
+                <td class="p-auto">
+                  <div class="form-group ">
+                    <label></label>
+                    <select class="custom-select sell_indicator" id="sell_indicator_${index+1}" name="sell_indicator_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="3">ao</option>
+                      <option value="32">cci</option>
+                      <option value="52">change</option>
+                      <option value="46">close</option>
+                      <option value="12">ema100</option>
+                      <option value="8">ema13</option>
+                      <option value="13">ema200</option>
+                      <option value="9">ema21</option>
+                      <option value="14">ema400</option>
+                      <option value="10">ema50</option>
+                      <option value="11">ema55</option>
+                      <option value="7">ema9</option>
+                      <option value="42">fastd</option>
+                      <option value="41">fastk</option>
+                      <option value="47">high</option>
+                      <option value="48">low</option>
+                      <option value="4">lowerband</option>
+                      <option value="20">ma100</option>
+                      <option value="16">ma13</option>
+                      <option value="21">ma200</option>
+                      <option value="17">ma21</option>
+                      <option value="22">ma400</option>
+                      <option value="18">ma50</option>
+                      <option value="19">ma55</option>
+                      <option value="15">ma9</option>
+                      <option value="33">macd</option>
+                      <option value="35">macd_hist</option>
+                      <option value="34">macd_signal</option>
+                      <option value="36">mfi</option>
+                      <option value="6">middleband</option>
+                      <option value="37">mom</option>
+                      <option value="44">obv</option>
+                      <option value="45">open</option>
+                      <option value="49">profit</option>
+                      <option value="38">rsi</option>
+                      <option value="31">sar</option>
+                      <option value="40">slowd</option>
+                      <option value="39">slowk</option>
+                      <option value="28">sma100</option>
+                      <option value="24">sma13</option>
+                      <option value="29">sma200</option>
+                      <option value="25">sma21</option>
+                      <option value="30">sma400</option>
+                      <option value="26">sma50</option>
+                      <option value="27">sma55</option>
+                      <option value="23">sma9</option>
+                      <option value="50">stoploss</option>
+                      <option value="5">upperband</option>
+                      <option value="1">value</option>
+                      <option value="51">volume</option>
+                      <option value="43">willr</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <div class="form-group ">
+                    <label></label>
+                    <select class="custom-select sell_condition" id="sell_condition_${index+1}" name="sell_condition_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="1">Below</option>
+                      <option value="4">Crosses Down</option>
+                      <option value="3">Crosses Up</option>
+                      <option value="8">Distinct</option>
+                      <option value="5">Equal</option>
+                      <option value="6">Major</option>
+                      <option value="7">Minor</option>
+                      <option value="9">Reached</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <div class="form-group row">
+                    <label></label>
+                    <select class="custom-select sell_value" id="sell_value_${index+1}" name="sell_value_${index+1}">
+                      <option selected="" value="">Select one</option>
+                      <option value="3">ao</option>
+                      <option value="32">cci</option>
+                      <option value="52">change</option>
+                      <option value="46">close</option>
+                      <option value="12">ema100</option>
+                      <option value="8">ema13</option>
+                      <option value="13">ema200</option>
+                      <option value="9">ema21</option>
+                      <option value="14">ema400</option>
+                      <option value="10">ema50</option>
+                      <option value="11">ema55</option>
+                      <option value="7">ema9</option>
+                      <option value="42">fastd</option>
+                      <option value="41">fastk</option>
+                      <option value="47">high</option>
+                      <option value="48">low</option>
+                      <option value="4">lowerband</option>
+                      <option value="20">ma100</option>
+                      <option value="16">ma13</option>
+                      <option value="21">ma200</option>
+                      <option value="17">ma21</option>
+                      <option value="22">ma400</option>
+                      <option value="18">ma50</option>
+                      <option value="19">ma55</option>
+                      <option value="15">ma9</option>
+                      <option value="33">macd</option>
+                      <option value="35">macd_hist</option>
+                      <option value="34">macd_signal</option>
+                      <option value="36">mfi</option>
+                      <option value="6">middleband</option>
+                      <option value="37">mom</option>
+                      <option value="44">obv</option>
+                      <option value="45">open</option>
+                      <option value="49">profit</option>
+                      <option value="38">rsi</option>
+                      <option value="31">sar</option>
+                      <option value="40">slowd</option>
+                      <option value="39">slowk</option>
+                      <option value="28">sma100</option>
+                      <option value="24">sma13</option>
+                      <option value="29">sma200</option>
+                      <option value="25">sma21</option>
+                      <option value="30">sma400</option>
+                      <option value="26">sma50</option>
+                      <option value="27">sma55</option>
+                      <option value="23">sma9</option>
+                      <option value="50">stoploss</option>
+                      <option value="5">upperband</option>
+                      <option value="1">value</option>
+                      <option value="51">volume</option>
+                      <option value="43">willr</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="p-auto">
+                  <button id="" type="button" class="btn btn-block bg-gradient-danger w-60 m-auto btn_eliminar" data-id="${index+1}">
+                    <i class="fa fas fa-minus"></i>
+                  </button>
+                </td>
+              </tr>`;
+            $('#table_sell_rules tbody').append(row);
+        });
+        $(document).on('click','.btn_eliminar', function(e){
+            $(this).closest('tr').remove();
+        });
+        $('#buy_strategy').trigger('change');
+    })
+</script>
+{% endblock javascripts %}

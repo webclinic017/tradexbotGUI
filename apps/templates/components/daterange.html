@@ -1,0 +1,13 @@
+{% macro daterange(id, name, label="", class="", required=True, value="") %}
+<div class="form-group">
+    <label>{{label}}</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-calendar-alt"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control float-right {{class}}" name="{{name}}" id="{{id}}" {% if required %} required {% endif %} value="{{value}}">
+    </div>
+</div>
+{% endmacro %}

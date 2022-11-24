@@ -1,0 +1,6 @@
+{% macro textarea(id, name, label="", required=False, placeholder="", value="") %}
+    <div class="form-group">
+        <label for="{{id}}">{{label}}</label>
+        <textarea class="form-control" name="{{name}}" id="{{id}}" rows="4" placeholder="{{placeholder}}" {% if required %} required {% endif %}>{{value}}</textarea>
+    </div>
+{% endmacro %}
