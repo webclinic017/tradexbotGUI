@@ -20,7 +20,7 @@ class Algorithm(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    algorithm_details = relationship("AlgorithmDetail", back_populates="algorithm")
+    algorithm_details = relationship("AlgorithmDetail", back_populates="algorithm", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -76,8 +76,8 @@ class Backtest(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    backtest_charts = relationship("BacktestChart", back_populates="backtest")
-    backtest_metrics = relationship("BacktestMetric", back_populates="backtest")
+    backtest_charts = relationship("BacktestChart", back_populates="backtest", cascade = "all, delete, delete-orphan")
+    backtest_metrics = relationship("BacktestMetric", back_populates="backtest", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     #training_detail = relationship("TrainingDetail", back_populates="backtests")
     #strategy = relationship("Strategy", back_populates="backtests")
@@ -132,7 +132,7 @@ class BuyStrategy(Base, SerializerMixin):
     active = Column(Boolean, default=True)
     
     # Relation with childrens Has many
-    strategies = relationship("Strategy", back_populates="buy_strategy")
+    strategies = relationship("Strategy", back_populates="buy_strategy", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -166,7 +166,7 @@ class Indicator(Base, SerializerMixin):
     active = Column(Boolean, default=True)
     
     # Relation with childrens Has many
-    train_indicators = relationship("TrainIndicator", back_populates="indicator")
+    train_indicators = relationship("TrainIndicator", back_populates="indicator", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -181,8 +181,8 @@ class ModelMetric(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    training_metrics = relationship("TrainingMetric", back_populates="model_metric")
-    train_metrics = relationship("TrainMetric", back_populates="model_metric")
+    training_metrics = relationship("TrainingMetric", back_populates="model_metric", cascade = "all, delete, delete-orphan")
+    train_metrics = relationship("TrainMetric", back_populates="model_metric", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -197,8 +197,8 @@ class PortfolioMetric(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    strategy_metrics = relationship("StrategyMetric", back_populates="portfolio_metric")
-    backtest_metrics = relationship("BacktestMetric", back_populates="portfolio_metric")
+    strategy_metrics = relationship("StrategyMetric", back_populates="portfolio_metric", cascade = "all, delete, delete-orphan")
+    backtest_metrics = relationship("BacktestMetric", back_populates="portfolio_metric", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -214,7 +214,7 @@ class Pair(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    strategy_pairs = relationship("StrategyPair", back_populates="pair")
+    strategy_pairs = relationship("StrategyPair", back_populates="pair", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
 
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
@@ -273,11 +273,11 @@ class Strategy(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    rules = relationship("Rule", back_populates="strategy")
-    strategy_pairs = relationship("StrategyPair", back_populates="strategy")
-    training_settings = relationship("TrainSetup", back_populates="strategy")
-    trades = relationship("Trade", back_populates="strategy")
-    strategy_metrics = relationship("StrategyMetric", back_populates="strategy")
+    rules = relationship("Rule", back_populates="strategy", cascade = "all, delete, delete-orphan")
+    strategy_pairs = relationship("StrategyPair", back_populates="strategy", cascade = "all, delete, delete-orphan")
+    training_settings = relationship("TrainSetup", back_populates="strategy", cascade = "all, delete, delete-orphan" )
+    trades = relationship("Trade", back_populates="strategy", cascade = "all, delete, delete-orphan")
+    strategy_metrics = relationship("StrategyMetric", back_populates="strategy", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     buy_strategy = relationship("BuyStrategy", back_populates="strategies")
     user = relationship("User", back_populates="strategies")
@@ -362,8 +362,8 @@ class TradingSetup(Base, SerializerMixin):
     user_id = Column(Integer, ForeignKey("user.id"))
 
     # Relation with childrens Has many
-    trades = relationship("Trade", back_populates="trading_setup")
-    training_settings = relationship("TrainSetup", back_populates="trading_setup")
+    trades = relationship("Trade", back_populates="trading_setup", cascade = "all, delete, delete-orphan")
+    training_settings = relationship("TrainSetup", back_populates="trading_setup", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     user = relationship("User", back_populates="trading_settings")
 
@@ -387,7 +387,7 @@ class Train(Base, SerializerMixin):
 
     # Relation with childrens Has many
     #backtests = relationship("Backtest", back_populates="train")
-    train_models = relationship("TrainModel", back_populates="train")
+    train_models = relationship("TrainModel", back_populates="train", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     train_setup = relationship("TrainSetup", back_populates="trainings")
 
@@ -407,9 +407,9 @@ class TrainModel(Base, SerializerMixin):
     favorite = Column(Boolean, default=False)
 
     # Relation with childrens Has many
-    backtests = relationship("Backtest", back_populates="train_model")
-    bots = relationship("Bot", back_populates="train_model")
-    train_metrics = relationship("TrainMetric", back_populates="train_model")
+    backtests = relationship("Backtest", back_populates="train_model", cascade = "all, delete, delete-orphan")
+    bots = relationship("Bot", back_populates="train_model", cascade = "all, delete, delete-orphan")
+    train_metrics = relationship("TrainMetric", back_populates="train_model", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     train = relationship("Train", back_populates="train_models")
 
@@ -450,9 +450,9 @@ class TrainingDetail(Base, SerializerMixin):
     active = Column(Boolean, default=True)
 
     # Relation with childrens Has many
-    training_settings = relationship("TrainSetup", back_populates="training_detail")
-    algorithm_details = relationship("AlgorithmDetail", back_populates="training_detail")
-    training_metrics = relationship("TrainingMetric", back_populates="training_detail")
+    training_settings = relationship("TrainSetup", back_populates="training_detail", cascade = "all, delete, delete-orphan")
+    algorithm_details = relationship("AlgorithmDetail", back_populates="training_detail", cascade = "all, delete, delete-orphan")
+    training_metrics = relationship("TrainingMetric", back_populates="training_detail", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     user = relationship("User", back_populates="training_details")
 
@@ -514,8 +514,8 @@ class TrainSetup(Base, SerializerMixin):
     strategy_id = Column(Integer, ForeignKey("strategy.id"))
 
     # Relation with childrens Has many
-    trainings = relationship("Train", back_populates="train_setup")
-    train_indicators = relationship("TrainIndicator", back_populates="train_setup")
+    trainings = relationship("Train", back_populates="train_setup", cascade = "all, delete, delete-orphan")
+    train_indicators = relationship("TrainIndicator", back_populates="train_setup", cascade = "all, delete, delete-orphan")
     # Relation with parents Has one
     user = relationship("User", back_populates="training_settings")
     trading_setup = relationship("TradingSetup", back_populates="training_settings")
@@ -535,8 +535,8 @@ class User(Base, SerializerMixin):
     uuid = Column(GUID, default=GUID_DEFAULT_SQLITE)
     password = Column(String(64))
     strategies = relationship("Strategy", back_populates="user")
-    training_details = relationship("TrainingDetail", back_populates="user")
-    training_settings = relationship("TrainSetup", back_populates="user")
-    trading_settings = relationship("TradingSetup", back_populates="user")
+    training_details = relationship("TrainingDetail", back_populates="user", cascade = "all, delete, delete-orphan")
+    training_settings = relationship("TrainSetup", back_populates="user", cascade = "all, delete, delete-orphan")
+    trading_settings = relationship("TradingSetup", back_populates="user", cascade = "all, delete, delete-orphan")
     created_at = Column(DateTime(), default=datetime.now(), server_default=FetchedValue())
     updated_at = Column(DateTime(), onupdate=datetime.now(), server_default=FetchedValue(), server_onupdate=FetchedValue())

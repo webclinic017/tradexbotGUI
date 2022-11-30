@@ -47,7 +47,7 @@
                                 ></i>
                             </span>
                             <a href="/autotrade/results/{{row.id}}/{{row.uuid}}" title="Bot results" class="btn btn-sm btn-secondary" ><i class="fa fas fa-chart-line"></i></a>
-                            <a href="/autotrade/delete/{{row.id}}/{{row.uuid}}" class="btn btn-sm btn-danger"><i class="fa fas fa-trash"></i></a>
+                            <button data-id="{{row.id}}" data-type="autotrade" data-status="{{row.status}}" class="btn btn-sm btn-danger delete"><i class="fa fas fa-trash"></i></button>
                         {% endif %}
                     </td>
                 {% endfor %}
@@ -110,6 +110,38 @@
                     }
                 }
             });
+        });
+        $('.delete').on('click', function(e){
+            let id = $(this).data('id');
+            let type = $(this).data('type');
+            let status = $(this).data('status');
+            if(status != "stopped"){
+                toastr.error("Only stopped bots can be deleted! Stop it before!")
+                return false;
+            }
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `All data that depend of this ${type}, even results and trades history, will be deleted. You won't be able to revert this!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.get(`/${type}/delete/${id}`, function( data ) {
+                        if (data.success){
+                            toastr.success(`The Bot was deleted successfully!`);
+                            setTimeout(() => {
+                                document.location.reload();
+                            }, "3000")                            
+                        }else{
+                            toastr.error(data.message)
+                        }
+                    });
+                }
+            })
+            
         });
     });
 </script>

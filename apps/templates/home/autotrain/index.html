@@ -64,6 +64,12 @@
                                         {% endif %}
                                         <a href="/train/results/all/{{row.id}}" title="Train results" class="btn btn-sm btn-secondary" {% if not item.completed %} disabled {% endif %} ><i class="fa fas fa-chart-line"></i></a>
                                         <a href="/autotrain/edit/{{row.id}}" title="Edit autotrain" class="btn btn-sm btn-secondary"><i class="fa fas fa-edit"></i></a>
+                                        {% if is_running.val %}
+                                            <button data-id="{{row.id}}" data-type="autotrain" data-status="running" class="btn btn-sm btn-danger delete"><i class="fa fas fa-trash"></i></button>
+                                        {% else %}
+                                            <button data-id="{{row.id}}" data-type="autotrain" data-status="stopped"  class="btn btn-sm btn-danger delete"><i class="fa fas fa-trash"></i></button>
+                                        {% endif %}
+                                        
                                     {% endif %}
                                 </td>
                             {% endfor %}
@@ -285,6 +291,37 @@
             }
         });
     });
-    
+    $('.delete').on('click', function(e){
+        let id = $(this).data('id');
+        let type = $(this).data('type');
+        let status = $(this).data('status');
+        if(status != "stopped"){
+            toastr.error("Running trains can not be deleted. Please, stop it first.");
+            return false
+        }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `All data that depend of this ${type}, even bots and backtests, will be deleted. You won't be able to revert this!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.get(`/${type}/delete/${id}`, function( data ) {
+                    if (data.success){
+                        toastr.success(`The ${type} was deleted successfully!`);
+                        setTimeout(() => {
+                            document.location.reload();
+                        }, "3000")                            
+                    }else{
+                        toastr.error(data.message)
+                    }
+                });
+            }
+        })
+        
+    });
 </script>
 {% endblock javascripts %}

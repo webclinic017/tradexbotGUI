@@ -140,7 +140,7 @@ def insertIndicators():
             {"name": "open","description":"Open Price"},{"name": "close","description":"Close Price"},
             {"name": "high","description":"High Price"},{"name": "low","description":"Low Price"},
             {"name": "profit","description":"Profit Percent (between 0 and 1)"},{"name": "stoploss","description":"Stop Loss (between 0 and 1)"},
-            {"name": "volume","description":"Volume"},{"name": "change","description":"Price Change"}]
+            {"name": "volume","description":"Volume"},{"name": "change","description":"Price Change"},{"name": "atr","description":"Average True Range"}]
     indicators = [models.Indicator(
         name = item["name"],
         description = item["description"]

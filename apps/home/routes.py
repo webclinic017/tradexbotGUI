@@ -1,4 +1,4 @@
-from ..authentication.models import AlgorithmDetail, PortfolioMetric, Strategy, TrainIndicator,TrainSetup, Train, TradingSetup, TrainingDetail, TrainingMetric, User, Indicator, Condition, Pair, BuyStrategy, ModelMetric, Algorithm, StrategyPair, StrategyMetric, Rule
+from ..authentication.models import AlgorithmDetail, PortfolioMetric, Strategy, TrainIndicator,TrainSetup, Bot, Train, TradingSetup, TrainModel, TrainingDetail, TrainingMetric, User, Indicator, Condition, Pair, BuyStrategy, ModelMetric, Algorithm, StrategyPair, StrategyMetric, Rule
 from ..authentication.crud import get_current_user
 from itertools import combinations, product
 from fastapi import APIRouter, Depends
@@ -188,6 +188,48 @@ async def strategy(request: Request, user: User = Depends(get_current_user), db:
         },
     )
 
+@router.get("/{type}/delete/{id}", response_class=JSONResponse)
+async def delete_settings(type : str, id : int, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    try:
+        if(type == "strategy"):
+            item = db.query(Strategy).filter(Strategy.id == id).first()
+            trains_running = db.query(Train).join(TrainSetup).join(Strategy).filter(Train.status == "running", Strategy.id == id).count()
+            if(trains_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running autotrains using this strategy. Please stop it to continue."},status_code=200)  
+            bots_running = db.query(Bot).join(TrainModel).join(Train).join(TrainSetup).join(Strategy).filter(Strategy.id == id, Bot.status == "running").count()
+            if(bots_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running bots using this strategy setup. Please stop them to continue."},status_code=200)   
+        elif (type == "trading"):
+            item = db.query(TradingSetup).filter(TradingSetup.id == id).first()
+            trains_running = db.query(Train).join(TrainSetup).join(TradingSetup).filter(Train.status == "running", TradingSetup.id == id).count()
+            if(trains_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running autotrains using this trading setup. Please stop it to continue."},status_code=200) 
+            bots_running = db.query(Bot).join(TrainModel).join(Train).join(TrainSetup).join(TradingSetup).filter(TradingSetup.id == id, Bot.status == "running").count()
+            if(bots_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running bots using this trading setup. Please stop them to continue."},status_code=200) 
+        elif (type == "trainer"):
+            item = db.query(TrainingDetail).filter(TrainingDetail.id == id).first()
+            trains_running = db.query(Train).join(TrainSetup).join(TrainingDetail).filter(Train.status == "running", TrainingDetail.id == id).count()
+            if(trains_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running autotrains using this training setup. Please stop them to continue."},status_code=200) 
+            bots_running = db.query(Bot).join(TrainModel).join(Train).join(TrainSetup).join(TrainingDetail).filter(TrainingDetail.id == id, Bot.status == "running").count()
+            if(bots_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running bots using this train setup. Please stop them to continue."},status_code=200) 
+        elif (type == "autotrain"):
+            item = db.query(TrainSetup).filter(TrainSetup.id == id).first()
+            bots_running = db.query(Bot).join(TrainModel).join(Train).join(TrainSetup).filter(TrainSetup.id == id, Bot.status == "running").count()
+            if(bots_running>0):
+                return JSONResponse(content={"success":False, "message": f"There are running bots using this setup. Please stop them to continue."},status_code=200) 
+        elif (type == "autotrade"):
+            item = db.query(Bot).filter(Bot.id == id).first()
+        else:
+            return JSONResponse(content={"success":False, "message": f"Unknown '{type}' module!"},status_code=200)
+        db.delete(item)
+        db.commit()
+        return JSONResponse(content={"success":True, "message": "Success!"},status_code=200)
+    except Exception as e:
+        print(e)
+        return JSONResponse(content={"success":False, "message": "The operation was failed!"},status_code=200)
 # ############# STRATEGY ################
 
 @router.get("/strategy/new", response_class=HTMLResponse)

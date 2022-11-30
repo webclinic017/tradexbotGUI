@@ -137,8 +137,8 @@ def trainer(configs, db, api):
                                                 backtest_id = back.id,
                                                 portfolio_metric_id = portfoliometric.id
                                             )
-                                        db.add(backtestmetric)
-                                        db.commit()
+                                            db.add(backtestmetric)
+                                            db.commit()
                                 break 
                         else:
                             log_file.write("######## Message is Error \n")
@@ -203,6 +203,13 @@ async def train_stop(train_setup_id: int, user: User = Depends(get_current_user)
         print(res)
         if(res["message"] == "Success"):
             # si se registro el bot agregalo en la bd local
+            db.query(Train).filter(Train.id == train_running.id).update(
+                    {
+                        Train.status: "stopped",
+                        Train.completed: False
+                    }
+                )         
+            db.commit() 
             return JSONResponse(content={"success":True},status_code=200)
         else:
             return JSONResponse(content={"success":False, "message": res["error"]}, status_code=200)

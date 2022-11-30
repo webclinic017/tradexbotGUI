@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col-12">
                             {% for item in model_metrics %}
-                                {{checkbox(item.name,"model_metrics[]",item.id,item.name)}}
+                                {{checkbox(item.name,"model_metrics[]",item.id,item.name, checked=True)}}
                             {% endfor %}
                         </div>
                     </div>
