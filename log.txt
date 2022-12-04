@@ -934,6 +934,2058 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
+success[{'scaler': './ml/models/scalers/_5_03122022062500AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022062500AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.24055944055944053}, {'name': 'ROC', 'value': 0.5764248565329892}, {'name': 'Specificity', 'value': 0.9995520303565312}, {'name': 'Accuracy', 'value': 0.996436002284109}, {'name': 'Recall', 'value': 0.1532976827094474}, {'name': 'Precision', 'value': 0.5584415584415584}, {'name': 'TP', 'value': 86}, {'name': 'TN', 'value': 151728}, {'name': 'FP', 'value': 68}, {'name': 'FN', 'value': 475}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022071402AM.html', 'chart_funds': './train/backtest/fondos_03122022071402AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010079177266697109}, {'name': '% Profit', 'value': 0.7917726669710801}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022071424AM.html', 'chart_funds': './train/backtest/fondos_03122022071424AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010124344945551658}, {'name': '% Profit', 'value': 1.2434494555165765}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022071446AM.html', 'chart_funds': './train/backtest/fondos_03122022071446AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010065831264712576}, {'name': '% Profit', 'value': 0.6583126471257472}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022071511AM.html', 'chart_funds': './train/backtest/fondos_03122022071511AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010079335664155423}, {'name': '% Profit', 'value': 0.7933566415542215}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022071531AM.html', 'chart_funds': './train/backtest/fondos_03122022071531AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010309585200658703}, {'name': '% Profit', 'value': 3.0958520065870188}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 23}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022071555AM.html', 'chart_funds': './train/backtest/fondos_03122022071555AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010097377128623219}, {'name': '% Profit', 'value': 0.9737712862321946}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022062500AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022062500AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.24055944055944053}, {'name': 'ROC', 'value': 0.5764248565329892}, {'name': 'Specificity', 'value': 0.9995520303565312}, {'name': 'Accuracy', 'value': 0.996436002284109}, {'name': 'Recall', 'value': 0.1532976827094474}, {'name': 'Precision', 'value': 0.5584415584415584}, {'name': 'TP', 'value': 86}, {'name': 'TN', 'value': 151728}, {'name': 'FP', 'value': 68}, {'name': 'FN', 'value': 475}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022071402AM.html', 'chart_funds': './train/backtest/fondos_03122022071402AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010079177266697109}, {'name': '% Profit', 'value': 0.7917726669710801}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022071424AM.html', 'chart_funds': './train/backtest/fondos_03122022071424AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010124344945551658}, {'name': '% Profit', 'value': 1.2434494555165765}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022071446AM.html', 'chart_funds': './train/backtest/fondos_03122022071446AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010065831264712576}, {'name': '% Profit', 'value': 0.6583126471257472}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022071511AM.html', 'chart_funds': './train/backtest/fondos_03122022071511AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010079335664155423}, {'name': '% Profit', 'value': 0.7933566415542215}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022071531AM.html', 'chart_funds': './train/backtest/fondos_03122022071531AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010309585200658703}, {'name': '% Profit', 'value': 3.0958520065870188}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 23}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022071555AM.html', 'chart_funds': './train/backtest/fondos_03122022071555AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010097377128623219}, {'name': '% Profit', 'value': 0.9737712862321946}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+success[{'scaler': './ml/models/scalers/_5_03122022071644AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022071644AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.2047244094488189}, {'name': 'ROC', 'value': 0.5638748821445648}, {'name': 'Specificity', 'value': 0.9996709465551394}, {'name': 'Accuracy', 'value': 0.9973483331911235}, {'name': 'Recall', 'value': 0.12807881773399016}, {'name': 'Precision', 'value': 0.5098039215686274}, {'name': 'TP', 'value': 52}, {'name': 'TN', 'value': 151901}, {'name': 'FP', 'value': 50}, {'name': 'FN', 'value': 354}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022080422AM.html', 'chart_funds': './train/backtest/fondos_03122022080422AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010031452086476407}, {'name': '% Profit', 'value': 0.3145208647640674}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022080442AM.html', 'chart_funds': './train/backtest/fondos_03122022080442AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010218658284928475}, {'name': '% Profit', 'value': 2.186582849284746}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022080503AM.html', 'chart_funds': './train/backtest/fondos_03122022080503AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010115912629428998}, {'name': '% Profit', 'value': 1.1591262942899805}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022080525AM.html', 'chart_funds': './train/backtest/fondos_03122022080525AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010037323189084938}, {'name': '% Profit', 'value': 0.37323189084936814}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022080546AM.html', 'chart_funds': './train/backtest/fondos_03122022080546AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010163745721440685}, {'name': '% Profit', 'value': 1.6374572144068456}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022080607AM.html', 'chart_funds': './train/backtest/fondos_03122022080607AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010058956811215462}, {'name': '% Profit', 'value': 0.5895681121546259}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 5}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022071644AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022071644AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.2047244094488189}, {'name': 'ROC', 'value': 0.5638748821445648}, {'name': 'Specificity', 'value': 0.9996709465551394}, {'name': 'Accuracy', 'value': 0.9973483331911235}, {'name': 'Recall', 'value': 0.12807881773399016}, {'name': 'Precision', 'value': 0.5098039215686274}, {'name': 'TP', 'value': 52}, {'name': 'TN', 'value': 151901}, {'name': 'FP', 'value': 50}, {'name': 'FN', 'value': 354}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022080422AM.html', 'chart_funds': './train/backtest/fondos_03122022080422AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010031452086476407}, {'name': '% Profit', 'value': 0.3145208647640674}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022080442AM.html', 'chart_funds': './train/backtest/fondos_03122022080442AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010218658284928475}, {'name': '% Profit', 'value': 2.186582849284746}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022080503AM.html', 'chart_funds': './train/backtest/fondos_03122022080503AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010115912629428998}, {'name': '% Profit', 'value': 1.1591262942899805}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022080525AM.html', 'chart_funds': './train/backtest/fondos_03122022080525AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010037323189084938}, {'name': '% Profit', 'value': 0.37323189084936814}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022080546AM.html', 'chart_funds': './train/backtest/fondos_03122022080546AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010163745721440685}, {'name': '% Profit', 'value': 1.6374572144068456}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022080607AM.html', 'chart_funds': './train/backtest/fondos_03122022080607AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010058956811215462}, {'name': '% Profit', 'value': 0.5895681121546259}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 5}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+success[{'scaler': './ml/models/scalers/_5_03122022080700AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022080700AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.27202072538860106}, {'name': 'ROC', 'value': 0.5894734476884017}, {'name': 'Specificity', 'value': 0.9994597158896239}, {'name': 'Accuracy', 'value': 0.9963112951817114}, {'name': 'Recall', 'value': 0.1794871794871795}, {'name': 'Precision', 'value': 0.5614973262032086}, {'name': 'TP', 'value': 105}, {'name': 'TN', 'value': 151690}, {'name': 'FP', 'value': 82}, {'name': 'FN', 'value': 480}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022085623AM.html', 'chart_funds': './train/backtest/fondos_03122022085623AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010134182816650416}, {'name': '% Profit', 'value': 1.3418281665041665}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022085645AM.html', 'chart_funds': './train/backtest/fondos_03122022085645AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010226122996895605}, {'name': '% Profit', 'value': 2.2612299689560578}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022085709AM.html', 'chart_funds': './train/backtest/fondos_03122022085709AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.0102121825777748}, {'name': '% Profit', 'value': 2.1218257777479987}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022085735AM.html', 'chart_funds': './train/backtest/fondos_03122022085735AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010069952692326902}, {'name': '% Profit', 'value': 0.6995269232690227}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022085755AM.html', 'chart_funds': './train/backtest/fondos_03122022085755AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01023412128027449}, {'name': '% Profit', 'value': 2.3412128027449075}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 22}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022085819AM.html', 'chart_funds': './train/backtest/fondos_03122022085819AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010104506326540991}, {'name': '% Profit', 'value': 1.045063265409918}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022080700AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022080700AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.27202072538860106}, {'name': 'ROC', 'value': 0.5894734476884017}, {'name': 'Specificity', 'value': 0.9994597158896239}, {'name': 'Accuracy', 'value': 0.9963112951817114}, {'name': 'Recall', 'value': 0.1794871794871795}, {'name': 'Precision', 'value': 0.5614973262032086}, {'name': 'TP', 'value': 105}, {'name': 'TN', 'value': 151690}, {'name': 'FP', 'value': 82}, {'name': 'FN', 'value': 480}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022085623AM.html', 'chart_funds': './train/backtest/fondos_03122022085623AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010134182816650416}, {'name': '% Profit', 'value': 1.3418281665041665}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022085645AM.html', 'chart_funds': './train/backtest/fondos_03122022085645AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010226122996895605}, {'name': '% Profit', 'value': 2.2612299689560578}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022085709AM.html', 'chart_funds': './train/backtest/fondos_03122022085709AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.0102121825777748}, {'name': '% Profit', 'value': 2.1218257777479987}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022085735AM.html', 'chart_funds': './train/backtest/fondos_03122022085735AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010069952692326902}, {'name': '% Profit', 'value': 0.6995269232690227}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022085755AM.html', 'chart_funds': './train/backtest/fondos_03122022085755AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01023412128027449}, {'name': '% Profit', 'value': 2.3412128027449075}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 22}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022085819AM.html', 'chart_funds': './train/backtest/fondos_03122022085819AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010104506326540991}, {'name': '% Profit', 'value': 1.045063265409918}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
+running#### send checksum to api to get status 
+#### train STATUS 
+ Success
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
@@ -1660,8 +3712,8 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
-success[{'scaler': './ml/models/scalers/_6_30112022094526AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'RandomForest', 'file': './ml/models/RandomForest_30112022094526AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.21052631578947367}, {'name': 'ROC', 'value': 0.561679089043929}, {'name': 'Specificity', 'value': 0.9999013879644011}, {'name': 'Accuracy', 'value': 0.9981547091821671}, {'name': 'Recall', 'value': 0.12345679012345678}, {'name': 'Precision', 'value': 0.7142857142857143}, {'name': 'TP', 'value': 10}, {'name': 'TN', 'value': 40559}, {'name': 'FP', 'value': 4}, {'name': 'FN', 'value': 71}], 'model_best_parameters': {'min_samples_split': 4, 'n_estimators': 1200, 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022102039AM.html', 'chart_funds': './train/backtest/fondos_30112022102039AM.html', 'metrics': [{'name': '% Profit', 'value': 0.060113876589804875}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022102147AM.html', 'chart_funds': './train/backtest/fondos_30112022102147AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022102212AM.html', 'chart_funds': './train/backtest/fondos_30112022102212AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022102235AM.html', 'chart_funds': './train/backtest/fondos_30112022102235AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06012923215885864}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022102256AM.html', 'chart_funds': './train/backtest/fondos_30112022102256AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06117192765587642}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022102344AM.html', 'chart_funds': './train/backtest/fondos_30112022102344AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}]}, {'scaler': './ml/models/scalers/_6_30112022094526AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_30112022102423AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.43199999999999994}, {'name': 'ROC', 'value': 0.6664571160910189}, {'name': 'Specificity', 'value': 0.9995808988487045}, {'name': 'Accuracy', 'value': 0.9982531246924515}, {'name': 'Recall', 'value': 0.3333333333333333}, {'name': 'Precision', 'value': 0.6136363636363636}, {'name': 'TP', 'value': 27}, {'name': 'TN', 'value': 40546}, {'name': 'FP', 'value': 17}, {'name': 'FN', 'value': 54}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022115946AM.html', 'chart_funds': './train/backtest/fondos_30112022115946AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013327792347008}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022120033PM.html', 'chart_funds': './train/backtest/fondos_30112022120033PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022120120PM.html', 'chart_funds': './train/backtest/fondos_30112022120120PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060064415023254325}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022120211PM.html', 'chart_funds': './train/backtest/fondos_30112022120211PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06024496714918413}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022120300PM.html', 'chart_funds': './train/backtest/fondos_30112022120300PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060914240805332115}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022120349PM.html', 'chart_funds': './train/backtest/fondos_30112022120349PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028938204192728}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 1}]}]}]<class 'str'>######## TRAINED 
-[{'scaler': './ml/models/scalers/_6_30112022094526AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'RandomForest', 'file': './ml/models/RandomForest_30112022094526AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.21052631578947367}, {'name': 'ROC', 'value': 0.561679089043929}, {'name': 'Specificity', 'value': 0.9999013879644011}, {'name': 'Accuracy', 'value': 0.9981547091821671}, {'name': 'Recall', 'value': 0.12345679012345678}, {'name': 'Precision', 'value': 0.7142857142857143}, {'name': 'TP', 'value': 10}, {'name': 'TN', 'value': 40559}, {'name': 'FP', 'value': 4}, {'name': 'FN', 'value': 71}], 'model_best_parameters': {'min_samples_split': 4, 'n_estimators': 1200, 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022102039AM.html', 'chart_funds': './train/backtest/fondos_30112022102039AM.html', 'metrics': [{'name': '% Profit', 'value': 0.060113876589804875}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022102147AM.html', 'chart_funds': './train/backtest/fondos_30112022102147AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022102212AM.html', 'chart_funds': './train/backtest/fondos_30112022102212AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022102235AM.html', 'chart_funds': './train/backtest/fondos_30112022102235AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06012923215885864}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022102256AM.html', 'chart_funds': './train/backtest/fondos_30112022102256AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06117192765587642}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022102344AM.html', 'chart_funds': './train/backtest/fondos_30112022102344AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}]}, {'scaler': './ml/models/scalers/_6_30112022094526AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_30112022102423AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.43199999999999994}, {'name': 'ROC', 'value': 0.6664571160910189}, {'name': 'Specificity', 'value': 0.9995808988487045}, {'name': 'Accuracy', 'value': 0.9982531246924515}, {'name': 'Recall', 'value': 0.3333333333333333}, {'name': 'Precision', 'value': 0.6136363636363636}, {'name': 'TP', 'value': 27}, {'name': 'TN', 'value': 40546}, {'name': 'FP', 'value': 17}, {'name': 'FN', 'value': 54}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022115946AM.html', 'chart_funds': './train/backtest/fondos_30112022115946AM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013327792347008}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022120033PM.html', 'chart_funds': './train/backtest/fondos_30112022120033PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022120120PM.html', 'chart_funds': './train/backtest/fondos_30112022120120PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060064415023254325}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022120211PM.html', 'chart_funds': './train/backtest/fondos_30112022120211PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06024496714918413}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022120300PM.html', 'chart_funds': './train/backtest/fondos_30112022120300PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060914240805332115}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022120349PM.html', 'chart_funds': './train/backtest/fondos_30112022120349PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028938204192728}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 4}, {'name': 'N BuysAcum', 'value': 1}]}]}]#### send config to api for training and get the task id 
+success[{'scaler': './ml/models/scalers/_5_03122022085916AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022085916AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.25531914893617025}, {'name': 'ROC', 'value': 0.5837087488626376}, {'name': 'Specificity', 'value': 0.9995853298931072}, {'name': 'Accuracy', 'value': 0.9972433166838413}, {'name': 'Recall', 'value': 0.16783216783216784}, {'name': 'Precision', 'value': 0.5333333333333333}, {'name': 'TP', 'value': 72}, {'name': 'TN', 'value': 151865}, {'name': 'FP', 'value': 63}, {'name': 'FN', 'value': 357}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022094734AM.html', 'chart_funds': './train/backtest/fondos_03122022094734AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010055999843307661}, {'name': '% Profit', 'value': 0.5599984330766139}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022094755AM.html', 'chart_funds': './train/backtest/fondos_03122022094755AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010243655061659465}, {'name': '% Profit', 'value': 2.436550616594646}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 24}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022094816AM.html', 'chart_funds': './train/backtest/fondos_03122022094816AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010127971426520898}, {'name': '% Profit', 'value': 1.2797142652089866}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022094838AM.html', 'chart_funds': './train/backtest/fondos_03122022094838AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010045191227887173}, {'name': '% Profit', 'value': 0.4519122788717356}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 5}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022094858AM.html', 'chart_funds': './train/backtest/fondos_03122022094858AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010225560176338001}, {'name': '% Profit', 'value': 2.255601763380022}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022094920AM.html', 'chart_funds': './train/backtest/fondos_03122022094920AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010057109988937047}, {'name': '% Profit', 'value': 0.5710998893704744}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022085916AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022085916AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.25531914893617025}, {'name': 'ROC', 'value': 0.5837087488626376}, {'name': 'Specificity', 'value': 0.9995853298931072}, {'name': 'Accuracy', 'value': 0.9972433166838413}, {'name': 'Recall', 'value': 0.16783216783216784}, {'name': 'Precision', 'value': 0.5333333333333333}, {'name': 'TP', 'value': 72}, {'name': 'TN', 'value': 151865}, {'name': 'FP', 'value': 63}, {'name': 'FN', 'value': 357}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022094734AM.html', 'chart_funds': './train/backtest/fondos_03122022094734AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010055999843307661}, {'name': '% Profit', 'value': 0.5599984330766139}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022094755AM.html', 'chart_funds': './train/backtest/fondos_03122022094755AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010243655061659465}, {'name': '% Profit', 'value': 2.436550616594646}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 24}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022094816AM.html', 'chart_funds': './train/backtest/fondos_03122022094816AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010127971426520898}, {'name': '% Profit', 'value': 1.2797142652089866}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022094838AM.html', 'chart_funds': './train/backtest/fondos_03122022094838AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010045191227887173}, {'name': '% Profit', 'value': 0.4519122788717356}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 5}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022094858AM.html', 'chart_funds': './train/backtest/fondos_03122022094858AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010225560176338001}, {'name': '% Profit', 'value': 2.255601763380022}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022094920AM.html', 'chart_funds': './train/backtest/fondos_03122022094920AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010057109988937047}, {'name': '% Profit', 'value': 0.5710998893704744}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
 #### api respond: Success 
 #### set status to running 
 #### send checksum to api to get status 
@@ -2618,751 +4670,11 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
+success[{'scaler': './ml/models/scalers/_5_03122022095011AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022095011AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.28351012536162007}, {'name': 'ROC', 'value': 0.5955440073539917}, {'name': 'Specificity', 'value': 0.9991820094860513}, {'name': 'Accuracy', 'value': 0.995123295943081}, {'name': 'Recall', 'value': 0.1919060052219321}, {'name': 'Precision', 'value': 0.5424354243542435}, {'name': 'TP', 'value': 147}, {'name': 'TN', 'value': 151467}, {'name': 'FP', 'value': 124}, {'name': 'FN', 'value': 619}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022103951AM.html', 'chart_funds': './train/backtest/fondos_03122022103951AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01012569899491307}, {'name': '% Profit', 'value': 1.2569899491306824}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 17}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022104017AM.html', 'chart_funds': './train/backtest/fondos_03122022104017AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01015867403926616}, {'name': '% Profit', 'value': 1.5867403926616008}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 18}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022104043AM.html', 'chart_funds': './train/backtest/fondos_03122022104043AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010201866650724239}, {'name': '% Profit', 'value': 2.0186665072423837}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 22}, {'name': 'N BuysAcum', 'value': 5}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022104114AM.html', 'chart_funds': './train/backtest/fondos_03122022104114AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010087495340330859}, {'name': '% Profit', 'value': 0.8749534033085871}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022104135AM.html', 'chart_funds': './train/backtest/fondos_03122022104135AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010256351904596232}, {'name': '% Profit', 'value': 2.5635190459623036}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 24}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022104202AM.html', 'chart_funds': './train/backtest/fondos_03122022104202AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010084356627899424}, {'name': '% Profit', 'value': 0.8435662789942455}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022095011AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022095011AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.28351012536162007}, {'name': 'ROC', 'value': 0.5955440073539917}, {'name': 'Specificity', 'value': 0.9991820094860513}, {'name': 'Accuracy', 'value': 0.995123295943081}, {'name': 'Recall', 'value': 0.1919060052219321}, {'name': 'Precision', 'value': 0.5424354243542435}, {'name': 'TP', 'value': 147}, {'name': 'TN', 'value': 151467}, {'name': 'FP', 'value': 124}, {'name': 'FN', 'value': 619}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022103951AM.html', 'chart_funds': './train/backtest/fondos_03122022103951AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01012569899491307}, {'name': '% Profit', 'value': 1.2569899491306824}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 17}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022104017AM.html', 'chart_funds': './train/backtest/fondos_03122022104017AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01015867403926616}, {'name': '% Profit', 'value': 1.5867403926616008}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 18}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022104043AM.html', 'chart_funds': './train/backtest/fondos_03122022104043AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010201866650724239}, {'name': '% Profit', 'value': 2.0186665072423837}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 22}, {'name': 'N BuysAcum', 'value': 5}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022104114AM.html', 'chart_funds': './train/backtest/fondos_03122022104114AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010087495340330859}, {'name': '% Profit', 'value': 0.8749534033085871}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022104135AM.html', 'chart_funds': './train/backtest/fondos_03122022104135AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010256351904596232}, {'name': '% Profit', 'value': 2.5635190459623036}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 24}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022104202AM.html', 'chart_funds': './train/backtest/fondos_03122022104202AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010084356627899424}, {'name': '% Profit', 'value': 0.8435662789942455}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
 #### train STATUS 
  Success
 running#### send checksum to api to get status 
@@ -4292,8 +5604,8 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
-success[{'scaler': './ml/models/scalers/_6_30112022120540PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'RandomForest', 'file': './ml/models/RandomForest_30112022120540PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.23214285714285712}, {'name': 'ROC', 'value': 0.569818492205355}, {'name': 'Specificity', 'value': 0.999852038174151}, {'name': 'Accuracy', 'value': 0.997884066528885}, {'name': 'Recall', 'value': 0.13978494623655913}, {'name': 'Precision', 'value': 0.6842105263157895}, {'name': 'TP', 'value': 13}, {'name': 'TN', 'value': 40545}, {'name': 'FP', 'value': 6}, {'name': 'FN', 'value': 80}], 'model_best_parameters': {'min_samples_split': 4, 'n_estimators': 1200, 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022011854PM.html', 'chart_funds': './train/backtest/fondos_30112022011854PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005704605172175}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022012003PM.html', 'chart_funds': './train/backtest/fondos_30112022012003PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022012100PM.html', 'chart_funds': './train/backtest/fondos_30112022012100PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022012159PM.html', 'chart_funds': './train/backtest/fondos_30112022012159PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060206398132268975}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022012256PM.html', 'chart_funds': './train/backtest/fondos_30112022012256PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06073050222702831}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022012359PM.html', 'chart_funds': './train/backtest/fondos_30112022012359PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022012507PM.html', 'chart_funds': './train/backtest/fondos_30112022012507PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005704605172175}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022012612PM.html', 'chart_funds': './train/backtest/fondos_30112022012612PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022012727PM.html', 'chart_funds': './train/backtest/fondos_30112022012727PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022012856PM.html', 'chart_funds': './train/backtest/fondos_30112022012856PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060206398132268975}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022013013PM.html', 'chart_funds': './train/backtest/fondos_30112022013013PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06073050222702831}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022013123PM.html', 'chart_funds': './train/backtest/fondos_30112022013123PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}]}, {'scaler': './ml/models/scalers/_6_30112022120540PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_30112022013217PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.4133333333333333}, {'name': 'ROC', 'value': 0.6663460827106605}, {'name': 'Specificity', 'value': 0.9993588320879879}, {'name': 'Accuracy', 'value': 0.9978348587737428}, {'name': 'Recall', 'value': 0.3333333333333333}, {'name': 'Precision', 'value': 0.543859649122807}, {'name': 'TP', 'value': 31}, {'name': 'TN', 'value': 40525}, {'name': 'FP', 'value': 26}, {'name': 'FN', 'value': 62}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022022215PM.html', 'chart_funds': './train/backtest/fondos_30112022022215PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060197194523993934}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022022300PM.html', 'chart_funds': './train/backtest/fondos_30112022022300PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022022345PM.html', 'chart_funds': './train/backtest/fondos_30112022022345PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013342008930989}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022022430PM.html', 'chart_funds': './train/backtest/fondos_30112022022430PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06053579197401958}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022022515PM.html', 'chart_funds': './train/backtest/fondos_30112022022515PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06126549988763108}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022022601PM.html', 'chart_funds': './train/backtest/fondos_30112022022601PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06021818484019418}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022022647PM.html', 'chart_funds': './train/backtest/fondos_30112022022647PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060197194523993934}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022022732PM.html', 'chart_funds': './train/backtest/fondos_30112022022732PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022022817PM.html', 'chart_funds': './train/backtest/fondos_30112022022817PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013342008930989}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022022902PM.html', 'chart_funds': './train/backtest/fondos_30112022022902PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06053579197401958}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022022947PM.html', 'chart_funds': './train/backtest/fondos_30112022022947PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06126549988763108}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022023033PM.html', 'chart_funds': './train/backtest/fondos_30112022023033PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06021818484019418}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}]}]<class 'str'>######## TRAINED 
-[{'scaler': './ml/models/scalers/_6_30112022120540PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'RandomForest', 'file': './ml/models/RandomForest_30112022120540PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.23214285714285712}, {'name': 'ROC', 'value': 0.569818492205355}, {'name': 'Specificity', 'value': 0.999852038174151}, {'name': 'Accuracy', 'value': 0.997884066528885}, {'name': 'Recall', 'value': 0.13978494623655913}, {'name': 'Precision', 'value': 0.6842105263157895}, {'name': 'TP', 'value': 13}, {'name': 'TN', 'value': 40545}, {'name': 'FP', 'value': 6}, {'name': 'FN', 'value': 80}], 'model_best_parameters': {'min_samples_split': 4, 'n_estimators': 1200, 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022011854PM.html', 'chart_funds': './train/backtest/fondos_30112022011854PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005704605172175}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022012003PM.html', 'chart_funds': './train/backtest/fondos_30112022012003PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022012100PM.html', 'chart_funds': './train/backtest/fondos_30112022012100PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022012159PM.html', 'chart_funds': './train/backtest/fondos_30112022012159PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060206398132268975}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022012256PM.html', 'chart_funds': './train/backtest/fondos_30112022012256PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06073050222702831}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022012359PM.html', 'chart_funds': './train/backtest/fondos_30112022012359PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022012507PM.html', 'chart_funds': './train/backtest/fondos_30112022012507PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005704605172175}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022012612PM.html', 'chart_funds': './train/backtest/fondos_30112022012612PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022012727PM.html', 'chart_funds': './train/backtest/fondos_30112022012727PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 0}, {'name': 'N BuysAcum', 'value': 0}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022012856PM.html', 'chart_funds': './train/backtest/fondos_30112022012856PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060206398132268975}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022013013PM.html', 'chart_funds': './train/backtest/fondos_30112022013013PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06073050222702831}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022013123PM.html', 'chart_funds': './train/backtest/fondos_30112022013123PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06028438362626077}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}]}, {'scaler': './ml/models/scalers/_6_30112022120540PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'mom', 'close', 'change', 'ema50', 'macd_hist', 'mfi', 'obv', 'adx', 'rsi', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_30112022013217PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.4133333333333333}, {'name': 'ROC', 'value': 0.6663460827106605}, {'name': 'Specificity', 'value': 0.9993588320879879}, {'name': 'Accuracy', 'value': 0.9978348587737428}, {'name': 'Recall', 'value': 0.3333333333333333}, {'name': 'Precision', 'value': 0.543859649122807}, {'name': 'TP', 'value': 31}, {'name': 'TN', 'value': 40525}, {'name': 'FP', 'value': 26}, {'name': 'FN', 'value': 62}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022022215PM.html', 'chart_funds': './train/backtest/fondos_30112022022215PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060197194523993934}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022022300PM.html', 'chart_funds': './train/backtest/fondos_30112022022300PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022022345PM.html', 'chart_funds': './train/backtest/fondos_30112022022345PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013342008930989}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022022430PM.html', 'chart_funds': './train/backtest/fondos_30112022022430PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06053579197401958}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022022515PM.html', 'chart_funds': './train/backtest/fondos_30112022022515PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06126549988763108}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022022601PM.html', 'chart_funds': './train/backtest/fondos_30112022022601PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06021818484019418}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_30112022022647PM.html', 'chart_funds': './train/backtest/fondos_30112022022647PM.html', 'metrics': [{'name': '% Profit', 'value': 0.060197194523993934}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'BNBBTC', 'chart_candles': './train/backtest/chart_30112022022732PM.html', 'chart_funds': './train/backtest/fondos_30112022022732PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06005723370429252}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 1}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_30112022022817PM.html', 'chart_funds': './train/backtest/fondos_30112022022817PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06013342008930989}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 2}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_30112022022902PM.html', 'chart_funds': './train/backtest/fondos_30112022022902PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06053579197401958}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_30112022022947PM.html', 'chart_funds': './train/backtest/fondos_30112022022947PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06126549988763108}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_30112022023033PM.html', 'chart_funds': './train/backtest/fondos_30112022023033PM.html', 'metrics': [{'name': '% Profit', 'value': 0.06021818484019418}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 3}, {'name': 'N BuysAcum', 'value': 1}]}]}]#### send config to api for training and get the task id 
+success[{'scaler': './ml/models/scalers/_5_03122022104306AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022104306AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.24791086350974928}, {'name': 'ROC', 'value': 0.5792370084953684}, {'name': 'Specificity', 'value': 0.9995454455621653}, {'name': 'Accuracy', 'value': 0.9964556928792244}, {'name': 'Recall', 'value': 0.15892857142857142}, {'name': 'Precision', 'value': 0.5632911392405063}, {'name': 'TP', 'value': 89}, {'name': 'TN', 'value': 151728}, {'name': 'FP', 'value': 69}, {'name': 'FN', 'value': 471}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022113154AM.html', 'chart_funds': './train/backtest/fondos_03122022113154AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01007968858455814}, {'name': '% Profit', 'value': 0.7968858455813965}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022113216AM.html', 'chart_funds': './train/backtest/fondos_03122022113216AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010128938499832625}, {'name': '% Profit', 'value': 1.2893849983262484}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022113238AM.html', 'chart_funds': './train/backtest/fondos_03122022113238AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010062286686128732}, {'name': '% Profit', 'value': 0.6228668612873189}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022113303AM.html', 'chart_funds': './train/backtest/fondos_03122022113303AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010047575214695912}, {'name': '% Profit', 'value': 0.4757521469591186}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022113323AM.html', 'chart_funds': './train/backtest/fondos_03122022113323AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01018500529792885}, {'name': '% Profit', 'value': 1.8500529792885079}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022113346AM.html', 'chart_funds': './train/backtest/fondos_03122022113346AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010092545961651453}, {'name': '% Profit', 'value': 0.9254596165145124}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 10}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022104306AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022104306AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.24791086350974928}, {'name': 'ROC', 'value': 0.5792370084953684}, {'name': 'Specificity', 'value': 0.9995454455621653}, {'name': 'Accuracy', 'value': 0.9964556928792244}, {'name': 'Recall', 'value': 0.15892857142857142}, {'name': 'Precision', 'value': 0.5632911392405063}, {'name': 'TP', 'value': 89}, {'name': 'TN', 'value': 151728}, {'name': 'FP', 'value': 69}, {'name': 'FN', 'value': 471}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022113154AM.html', 'chart_funds': './train/backtest/fondos_03122022113154AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01007968858455814}, {'name': '% Profit', 'value': 0.7968858455813965}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022113216AM.html', 'chart_funds': './train/backtest/fondos_03122022113216AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010128938499832625}, {'name': '% Profit', 'value': 1.2893849983262484}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 12}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022113238AM.html', 'chart_funds': './train/backtest/fondos_03122022113238AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010062286686128732}, {'name': '% Profit', 'value': 0.6228668612873189}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022113303AM.html', 'chart_funds': './train/backtest/fondos_03122022113303AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010047575214695912}, {'name': '% Profit', 'value': 0.4757521469591186}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 7}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022113323AM.html', 'chart_funds': './train/backtest/fondos_03122022113323AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01018500529792885}, {'name': '% Profit', 'value': 1.8500529792885079}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 16}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022113346AM.html', 'chart_funds': './train/backtest/fondos_03122022113346AM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010092545961651453}, {'name': '% Profit', 'value': 0.9254596165145124}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 10}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
 #### api respond: Success 
 #### set status to running 
 #### send checksum to api to get status 
@@ -5247,316 +6559,11 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
+success[{'scaler': './ml/models/scalers/_5_03122022113439AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022113439AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.32591273374888696}, {'name': 'ROC', 'value': 0.6128070715487309}, {'name': 'Specificity', 'value': 0.9991289945826103}, {'name': 'Accuracy', 'value': 0.9950314064992091}, {'name': 'Recall', 'value': 0.2264851485148515}, {'name': 'Precision', 'value': 0.580952380952381}, {'name': 'TP', 'value': 183}, {'name': 'TN', 'value': 151417}, {'name': 'FP', 'value': 132}, {'name': 'FN', 'value': 625}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022122412PM.html', 'chart_funds': './train/backtest/fondos_03122022122412PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010088306674111437}, {'name': '% Profit', 'value': 0.8830667411143578}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022122438PM.html', 'chart_funds': './train/backtest/fondos_03122022122438PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010214614827927094}, {'name': '% Profit', 'value': 2.146148279270932}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 26}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022122505PM.html', 'chart_funds': './train/backtest/fondos_03122022122505PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01024132357196715}, {'name': '% Profit', 'value': 2.4132357196715137}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 26}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022122538PM.html', 'chart_funds': './train/backtest/fondos_03122022122538PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01005820271585013}, {'name': '% Profit', 'value': 0.582027158501286}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022122558PM.html', 'chart_funds': './train/backtest/fondos_03122022122558PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010253305809193095}, {'name': '% Profit', 'value': 2.53305809193094}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 27}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022122626PM.html', 'chart_funds': './train/backtest/fondos_03122022122626PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010102267964209221}, {'name': '% Profit', 'value': 1.0226796420922168}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022113439AM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022113439AM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.32591273374888696}, {'name': 'ROC', 'value': 0.6128070715487309}, {'name': 'Specificity', 'value': 0.9991289945826103}, {'name': 'Accuracy', 'value': 0.9950314064992091}, {'name': 'Recall', 'value': 0.2264851485148515}, {'name': 'Precision', 'value': 0.580952380952381}, {'name': 'TP', 'value': 183}, {'name': 'TN', 'value': 151417}, {'name': 'FP', 'value': 132}, {'name': 'FN', 'value': 625}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022122412PM.html', 'chart_funds': './train/backtest/fondos_03122022122412PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010088306674111437}, {'name': '% Profit', 'value': 0.8830667411143578}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 1}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022122438PM.html', 'chart_funds': './train/backtest/fondos_03122022122438PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010214614827927094}, {'name': '% Profit', 'value': 2.146148279270932}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 26}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022122505PM.html', 'chart_funds': './train/backtest/fondos_03122022122505PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01024132357196715}, {'name': '% Profit', 'value': 2.4132357196715137}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 26}, {'name': 'N BuysAcum', 'value': 4}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022122538PM.html', 'chart_funds': './train/backtest/fondos_03122022122538PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.01005820271585013}, {'name': '% Profit', 'value': 0.582027158501286}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022122558PM.html', 'chart_funds': './train/backtest/fondos_03122022122558PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010253305809193095}, {'name': '% Profit', 'value': 2.53305809193094}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 27}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022122626PM.html', 'chart_funds': './train/backtest/fondos_03122022122626PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010102267964209221}, {'name': '% Profit', 'value': 1.0226796420922168}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}]}]#### send config to api for training and get the task id 
+#### api respond: Success 
+#### set status to running 
+#### send checksum to api to get status 
 #### train STATUS 
  Success
 running#### send checksum to api to get status 
@@ -6489,262 +7496,5 @@ running#### send checksum to api to get status
 running#### send checksum to api to get status 
 #### train STATUS 
  Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Success
-running#### send checksum to api to get status 
-#### train STATUS 
- Error
-######## Message is Error 
+success[{'scaler': './ml/models/scalers/_5_03122022122725PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022122725PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.29389788293897884}, {'name': 'ROC', 'value': 0.598214149973111}, {'name': 'Specificity', 'value': 0.9994333082934672}, {'name': 'Accuracy', 'value': 0.9962784775231857}, {'name': 'Recall', 'value': 0.19699499165275458}, {'name': 'Precision', 'value': 0.5784313725490197}, {'name': 'TP', 'value': 118}, {'name': 'TN', 'value': 151672}, {'name': 'FP', 'value': 86}, {'name': 'FN', 'value': 481}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022011615PM.html', 'chart_funds': './train/backtest/fondos_03122022011615PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010059355906758662}, {'name': '% Profit', 'value': 0.5935590675866242}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022011642PM.html', 'chart_funds': './train/backtest/fondos_03122022011642PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010081053489589889}, {'name': '% Profit', 'value': 0.8105348958988845}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022011705PM.html', 'chart_funds': './train/backtest/fondos_03122022011705PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010097244597093224}, {'name': '% Profit', 'value': 0.9724459709322453}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022011730PM.html', 'chart_funds': './train/backtest/fondos_03122022011730PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010038526659284511}, {'name': '% Profit', 'value': 0.38526659284510156}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022011750PM.html', 'chart_funds': './train/backtest/fondos_03122022011750PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010203150365410018}, {'name': '% Profit', 'value': 2.031503654100164}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022011815PM.html', 'chart_funds': './train/backtest/fondos_03122022011815PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010092313125514223}, {'name': '% Profit', 'value': 0.9231312551422288}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}]}]<class 'str'>######## TRAINED 
+[{'scaler': './ml/models/scalers/_5_03122022122725PM.joblib', 'train_columns': ['volume', 'cci', 'open', 'change', 'obv', 'rsi', 'close', 'macd_hist', 'mfi', 'mom', 'adx', 'atr'], 'model': {'name': 'XGBoost', 'file': './ml/models/XGBoost_03122022122725PM.joblib', 'metrics': [{'name': 'F1-score', 'value': 0.29389788293897884}, {'name': 'ROC', 'value': 0.598214149973111}, {'name': 'Specificity', 'value': 0.9994333082934672}, {'name': 'Accuracy', 'value': 0.9962784775231857}, {'name': 'Recall', 'value': 0.19699499165275458}, {'name': 'Precision', 'value': 0.5784313725490197}, {'name': 'TP', 'value': 118}, {'name': 'TN', 'value': 151672}, {'name': 'FP', 'value': 86}, {'name': 'FN', 'value': 481}], 'model_best_parameters': {'learning_rate': 0.1, 'n_estimators': 1200, 'objective': 'binary:logistic', 'random_state': 0}}, 'backtest': [{'pair': 'AVAXBTC', 'chart_candles': './train/backtest/chart_03122022011615PM.html', 'chart_funds': './train/backtest/fondos_03122022011615PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010059355906758662}, {'name': '% Profit', 'value': 0.5935590675866242}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 8}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'MATICBTC', 'chart_candles': './train/backtest/chart_03122022011642PM.html', 'chart_funds': './train/backtest/fondos_03122022011642PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010081053489589889}, {'name': '% Profit', 'value': 0.8105348958988845}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 9}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'UNIBTC', 'chart_candles': './train/backtest/chart_03122022011705PM.html', 'chart_funds': './train/backtest/fondos_03122022011705PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010097244597093224}, {'name': '% Profit', 'value': 0.9724459709322453}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 13}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'ETHBTC', 'chart_candles': './train/backtest/chart_03122022011730PM.html', 'chart_funds': './train/backtest/fondos_03122022011730PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010038526659284511}, {'name': '% Profit', 'value': 0.38526659284510156}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 6}, {'name': 'N BuysAcum', 'value': 3}]}, {'pair': 'SOLBTC', 'chart_candles': './train/backtest/chart_03122022011750PM.html', 'chart_funds': './train/backtest/fondos_03122022011750PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010203150365410018}, {'name': '% Profit', 'value': 2.031503654100164}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 21}, {'name': 'N BuysAcum', 'value': 2}]}, {'pair': 'LINKBTC', 'chart_candles': './train/backtest/chart_03122022011815PM.html', 'chart_funds': './train/backtest/fondos_03122022011815PM.html', 'metrics': [{'name': 'Profit/Loss', 'value': 0.010092313125514223}, {'name': '% Profit', 'value': 0.9231312551422288}, {'name': 'Max Drawdown', 'value': 0.0}, {'name': 'N Buys', 'value': 11}, {'name': 'N BuysAcum', 'value': 2}]}]}]

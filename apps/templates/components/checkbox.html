@@ -1,9 +1,9 @@
-{% macro checkbox(id, name, value, label, checked=False, required=False) %}
+{% macro checkbox(id, name, value, label, checked=False, required=False, disabled=False) %}
 <div class="form-group">
     <div class="custom-control custom-checkbox">
       <input class="custom-control-input" type="checkbox" id="{{id}}" name="{{name}}" {% if checked %}
         checked
-      {% endif %}  value="{{value}}" {% if required %} required {% endif%}>
+      {% endif %}  value="{{value}}" {% if required %} required {% endif%} {% if disabled %} disabled {% endif%}>
       <label for="{{id}}" class="custom-control-label">{{label}}</label>
     </div>
 </div>

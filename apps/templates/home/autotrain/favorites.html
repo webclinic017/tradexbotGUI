@@ -4,6 +4,8 @@
 {% from 'components/dropdown.html' import dropdown %}
 {% from 'components/modal.html' import modal %}
 {% from 'components/left-nav.html' import lefttabs, nav_item, tab_pane %}
+{% from 'components/input.html' import input %}
+{% from 'components/checkbox.html' import checkbox %}
 
 {% block title %} Strategy {% endblock %}
 
@@ -53,7 +55,10 @@
                     <button type="button" class="btn btn-outline-danger" id="favorite" data-value="0"><i class="fas fa-star" style="margin-right:5px"></i><span>Remove from favorites</span></button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-outline-warning" id="autobot" data-id=""><i class="fas fa-robot" style="margin-right:5px"></i><span>create BOT</span></button>
+                <button type="button" class="btn btn-outline-warning" id="autobot" data-id="">
+                    <i class="fas fa-robot" style="margin-right:5px"></i><span>create BOT</span>
+                </button>
+                
             </div>
         </div>
         <div class="row justify-content-center">
@@ -92,6 +97,20 @@
     </section>
     <!-- /.content -->
 </div>
+{% call() modal("modal_bot",title="Bot Settings",savebutton=True, savebuttonid="deploy_autobot", savebuttontext="Deploy Boy") %}
+<div class="row">
+    <div class="col-md-6">
+        {{ input("bot_capital", "bot_capital", type="number", label="Available capital (Base currency)", required=True, placeholder="0", min="0", step="0.001") }}
+        {{ checkbox("same_capital", "same_capital", 1, "Same capital to every pair.", checked=True, disabled=True) }}
+    </div>
+    <div class="col-md-6">
+        <label for="">Select the pairs for Bot</label>
+        <div id="select_pairs">
+
+        </div>
+    </div>
+</div>
+{% endcall %}
 
 {% endblock content %}
 
@@ -170,11 +189,39 @@
             });
         });
         $('#autobot').on('click',function(e){
-            let train_model_id = $(this).attr('data-id');
+            let htmlx = "";
+            $('#select_pairs').empty();
+            $('#bot_capital').val(0);
+            //console.log($('.pairs .btn-group-toggle').children('label'))
+            $('.pairs .btn-group-toggle').children('label').each(function(i,item)
+            {
+                console.log($(this).find('input').attr('value'))
+                //console.log($(item).children('input').html);
+                htmlx += `<div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="${$(this).find('input').attr('value')}" name="bot_pairs" checked value="${$(this).find('input').attr('value')}">
+                                <label for="${$(this).find('input').attr('value')}" class="custom-control-label">${$(this).find('input').attr('value')}</label>
+                                </div>
+                            </div>`;
+            });
+            $('#select_pairs').append(htmlx);
+            console.log("holll")
+            $('#modal_bot').modal('show');
+        });
+        $('#deploy_autobot').on('click',function(e){
+            let train_model_id = $('#autobot').attr('data-id');
+            var favorite = [];
             let name =  $('.nav-link.backtest.active').html();
+            let capital = $('#bot_capital').val();
+            $.each($("input[name='bot_pairs']:checked"), function(){
+                favorite.push($(this).val());
+            });
+            console.log(favorite);
             formData = new FormData
             formData.append("id",train_model_id);
             formData.append("name",name);
+            formData.append("pairs",JSON.stringify(favorite));
+            formData.append("capital",capital);
             $.ajax({
                 url: "/autotrade/add",
                 method: "POST",

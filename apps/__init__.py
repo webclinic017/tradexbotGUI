@@ -17,6 +17,7 @@ def create_app():
     app = FastAPI()
 
     mount_static(app)
+    mount_backtest(app)
     custom_error_pages(app)
     register_routes(app)
     configure_database(app)
@@ -31,7 +32,12 @@ def mount_static(app):
         name="static",
     )
 
-
+def mount_backtest(app):
+    app.mount(
+        "/backtest",
+        StaticFiles(directory="backtest"),
+        name="backtest",
+    )
 
 
 def custom_error_pages(app):

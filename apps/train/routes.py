@@ -370,7 +370,10 @@ async def autotrade_add(
         print("HOLA2")
         aux_columns = list(set(ast.literal_eval(train_model.columns.replace(" ",""))))
         print("HOLA 3")
-        aux_pairs = list(set([item["pair"]["name"] for item in config_params["strategy"]["strategy_pairs"]]))
+        #aux_pairs = list(set([item["pair"]["name"] for item in config_params["strategy"]["strategy_pairs"]]))
+        aux_pairs = list(set(ast.literal_eval(form_data["pairs"])))
+        print(f" aux_pairs: {aux_pairs} type {type(aux_pairs)}")
+        #raise Exception
         """
         # upload MODEL
         print("upload model")
@@ -405,8 +408,8 @@ async def autotrade_add(
             "api_key": config_params["trading_setup"]["api_key"],
             "api_secret": config_params["trading_setup"]["api_secret"],
             "exchange": config_params["trading_setup"]["exchange"],
-            "initial_capital": float(config_params["trading_setup"]["capital"])/len(aux_pairs),
-            "capital_pair": {item:float(config_params["trading_setup"]["capital"])/len(aux_pairs) for item in aux_pairs},
+            "initial_capital": float(form_data["capital"])/len(aux_pairs), #float(config_params["trading_setup"]["capital"])/len(aux_pairs),
+            "capital_pair": {item:float(form_data["capital"])/len(aux_pairs) for item in aux_pairs},
             "currency_base": config_params["trading_setup"]["currency_base"],
             "strategy": config_params["strategy"]["buy_strategy"]["name"],
             "strategy_parameters": str(config_params["strategy"]["strategy_parameters"])
