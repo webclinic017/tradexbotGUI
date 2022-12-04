@@ -40,8 +40,6 @@ def mount_backtest(app):
     )
 
 
-
-
 def custom_error_pages(app):
     @app.exception_handler(StarletteHTTPException)
     async def http_exception_handler(request, exc):
