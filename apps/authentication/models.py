@@ -401,6 +401,8 @@ class TrainModel(Base, SerializerMixin):
     train_id = Column(Integer, ForeignKey("train.id"))
     model = Column(String(200))
     scaler = Column(String(200))
+    chart = Column(String(200))
+    n_buys = Column(Integer)
     columns = Column(String(1000))
     model_best_parameters = Column(String(2000))
     active = Column(Boolean, default=True)
@@ -417,7 +419,7 @@ class TrainModel(Base, SerializerMixin):
     updated_at = Column(DateTime, onupdate=datetime.now(), server_default=FetchedValue(), server_onupdate=FetchedValue())
     
     def get_metrics_value(self):
-        ret = [item.value for item in self.train_metrics]
+        ret = {item.model_metric.name:item.value for item in self.train_metrics}
         return ret
 class TrainIndicator(Base, SerializerMixin):
     serialize_only = {'indicator.name'}

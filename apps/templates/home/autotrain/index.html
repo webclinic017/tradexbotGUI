@@ -200,6 +200,9 @@
                     }else{
                         toastr.error('Run training Failed.')
                     }
+                    setTimeout(() => {
+                        document.location.reload();
+                    }, "3000")  
                 }
             });
             /*
@@ -314,7 +317,7 @@
                         toastr.success(`The ${type} was deleted successfully!`);
                         setTimeout(() => {
                             document.location.reload();
-                        }, "3000")                            
+                        }, "1500")                            
                     }else{
                         toastr.error(data.message)
                     }

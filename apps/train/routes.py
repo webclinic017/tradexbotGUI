@@ -87,6 +87,7 @@ def trainer(configs, db, api):
                                     trainmodel = TrainModel(
                                         train_id = item["id"],
                                         model = train["model"]["file"],
+                                        chart = train["model"]["chart"],
                                         scaler = train["scaler"],
                                         columns = str(train["train_columns"]),
                                         model_best_parameters = str(train["model"]["model_best_parameters"])
@@ -294,13 +295,21 @@ async def backtest_results(training_id: int,pair_name: str,model_name: str, user
     print(train)
     train_model = db.query(TrainModel).filter(TrainModel.model.like('%'+model_name+'%')).filter(TrainModel.train_id == train.id).first()
     print(train_model)
-    backtest = db.query(Backtest).filter(Backtest.train_model_id == train_model.id, Backtest.pair == pair_name).first()
-    print(backtest)
-    chart_candle = db.query(BacktestChart).filter(BacktestChart.name == "Chart candle", BacktestChart.backtest_id == backtest.id).first()
-    chart_funds = db.query(BacktestChart).filter(BacktestChart.name == "Chart Funds", BacktestChart.backtest_id == backtest.id).first()
-    metrics = [{"name": item.portfolio_metric.name, "value": item.value} for item in backtest.backtest_metrics]
+    if pair_name != "All":
+        backtest = db.query(Backtest).filter(Backtest.train_model_id == train_model.id, Backtest.pair == pair_name).first()
+        print(backtest)
+        chart_candle = db.query(BacktestChart).filter(BacktestChart.name == "Chart candle", BacktestChart.backtest_id == backtest.id).first()
+        chart_funds = db.query(BacktestChart).filter(BacktestChart.name == "Chart Funds", BacktestChart.backtest_id == backtest.id).first()
+        metrics = [{"name": item.portfolio_metric.name, "value": item.value} for item in backtest.backtest_metrics]
 
-    return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.path.split('/')[3], "chart_funds": os.getenv("API_CHART")+chart_funds.path.split('/')[3], "metrics": metrics, "favorite":train_model.favorite},status_code=200)
+        return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.path.split('/')[3], "chart_funds": os.getenv("API_CHART")+chart_funds.path.split('/')[3], "metrics": metrics, "favorite":train_model.favorite},status_code=200)
+    else:
+        chart_candle = train_model.chart
+        chart_funds = ""
+        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"]
+        metrics = [{"name": item.model_metric.name, "value": item.value} for item in train_model.train_metrics if item.model_metric.name in aux_metric_names]
+        return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.split('/')[3], "chart_funds": chart_funds, 
+                            "metrics": metrics, "favorite":train_model.favorite},status_code=200)
 
 @router.get("/train/favorite/{training_id}/{model_name}", response_class=JSONResponse)
 async def set_favorite(training_id: int,model_name: str, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
@@ -336,20 +345,25 @@ async def remove_favorite(training_id: int, user: User = Depends(get_current_use
 async def favorite_results(trainmodel_id: int, pair_name: str, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     train_model = db.query(TrainModel).join(Train).join(TrainSetup).filter(TrainModel.favorite == True, TrainModel.id == trainmodel_id, TrainSetup.user_id == user.id).first()
     print(train_model)
-    if pair_name != "name":
-        backtest = db.query(Backtest).filter(Backtest.train_model_id == train_model.id, Backtest.pair == pair_name).first()
-    else:
-        backtest = db.query(Backtest).filter(Backtest.train_model_id == train_model.id).first()
     pairs = list(set([item.pair for item in train_model.backtests]))
-    print(backtest)
-    print(len(train_model.bots))
     has_bot = True if len(train_model.bots)>0 else False
-    chart_candle = db.query(BacktestChart).filter(BacktestChart.name == "Chart candle", BacktestChart.backtest_id == backtest.id).first()
-    chart_funds = db.query(BacktestChart).filter(BacktestChart.name == "Chart Funds", BacktestChart.backtest_id == backtest.id).first()
-    metrics = [{"name": item.portfolio_metric.name, "value": item.value} for item in backtest.backtest_metrics]
+    if pair_name != "All":
+        backtest = db.query(Backtest).filter(Backtest.train_model_id == train_model.id, Backtest.pair == pair_name).first()
+        print(backtest)
+        print(len(train_model.bots))
+        chart_candle = db.query(BacktestChart).filter(BacktestChart.name == "Chart candle", BacktestChart.backtest_id == backtest.id).first()
+        chart_funds = db.query(BacktestChart).filter(BacktestChart.name == "Chart Funds", BacktestChart.backtest_id == backtest.id).first()
+        metrics = [{"name": item.portfolio_metric.name, "value": item.value} for item in backtest.backtest_metrics]
 
-    return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.path.split('/')[3], "chart_funds": os.getenv("API_CHART")+chart_funds.path.split('/')[3], "metrics": metrics, "pairs": pairs, "id":train_model.id, "model_name": train_model.model.split('/')[3].split("_")[0], "has_bot":has_bot},status_code=200)
-
+        return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.path.split('/')[3], "chart_funds": os.getenv("API_CHART")+chart_funds.path.split('/')[3], "metrics": metrics, "pairs": pairs, "id":train_model.id, "model_name": train_model.model.split('/')[3].split("_")[0], "has_bot":has_bot},status_code=200)
+    else:
+        chart_candle = train_model.chart
+        chart_funds = ""
+        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"]
+        metrics = [{"name": item.model_metric.name, "value": item.value} for item in train_model.train_metrics if item.model_metric.name in aux_metric_names]
+        return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.split('/')[3], 
+                            "chart_funds": chart_funds, "metrics": metrics, "pairs": pairs, "id":train_model.id, 
+                            "model_name": train_model.model.split('/')[3].split("_")[0], "has_bot":has_bot},status_code=200)
 ############## Autotrade #####################
 
 @router.post("/autotrade/add", response_class=JSONResponse)
@@ -364,13 +378,17 @@ async def autotrade_add(
         form_data = tuples_to_dict(form_data.multi_items())
         print(f"form_data: {form_data} type {form_data} ")
         # register new bot in API tradexbot
+        
         train_model = db.query(TrainModel).filter(TrainModel.id == int(form_data["id"])).first()
         print("HOLA 1")
         config_params = ast.literal_eval(train_model.train.parameters)
         print("HOLA2")
         aux_columns = list(set(ast.literal_eval(train_model.columns.replace(" ",""))))
         print("HOLA 3")
-        aux_pairs = list(set([item["pair"]["name"] for item in config_params["strategy"]["strategy_pairs"]]))
+        #aux_pairs = list(set([item["pair"]["name"] for item in config_params["strategy"]["strategy_pairs"]]))
+        aux_pairs = list(set(ast.literal_eval(form_data["pairs"])))
+        print(f" aux_pairs: {aux_pairs} type {type(aux_pairs)}")
+        #raise Exception
         """
         # upload MODEL
         print("upload model")
@@ -405,8 +423,8 @@ async def autotrade_add(
             "api_key": config_params["trading_setup"]["api_key"],
             "api_secret": config_params["trading_setup"]["api_secret"],
             "exchange": config_params["trading_setup"]["exchange"],
-            "initial_capital": float(config_params["trading_setup"]["capital"])/len(aux_pairs),
-            "capital_pair": {item:float(config_params["trading_setup"]["capital"])/len(aux_pairs) for item in aux_pairs},
+            "initial_capital": float(form_data["capital"])/len(aux_pairs), #float(config_params["trading_setup"]["capital"])/len(aux_pairs),
+            "capital_pair": {item:float(form_data["capital"])/len(aux_pairs) for item in aux_pairs},
             "currency_base": config_params["trading_setup"]["currency_base"],
             "strategy": config_params["strategy"]["buy_strategy"]["name"],
             "strategy_parameters": str(config_params["strategy"]["strategy_parameters"])

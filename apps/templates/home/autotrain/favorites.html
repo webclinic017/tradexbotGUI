@@ -4,6 +4,8 @@
 {% from 'components/dropdown.html' import dropdown %}
 {% from 'components/modal.html' import modal %}
 {% from 'components/left-nav.html' import lefttabs, nav_item, tab_pane %}
+{% from 'components/input.html' import input %}
+{% from 'components/checkbox.html' import checkbox %}
 
 {% block title %} Strategy {% endblock %}
 
@@ -30,7 +32,7 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- Main content -->
-    {% set metrics_name = ["F1-score","ROC", "Specificity", "Accuracy", "Recall", "Precision", "TP", "TN", "FP", "FN"] %}
+    {% set metrics_name = ["F1-score","ROC", "Recall", "Precision", "N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"] %}
     {% set header = ["Train", "Model"]+metrics_name %}
     {% set resume_content %}
         {% call(row,head,index) x_table.simple_table(header, trains, "Trainings results" , "table_train_results", class="hover", height="auto") %}
@@ -38,10 +40,12 @@
                 <td rowspan="1">{{index}}</td>
                 {% set name = row.model.split('/')[3].split("_") %}
                 <td>{{name[0]}}</td>
-                {% for trainmetric in row.get_metrics_value() %}
-                    <td>
-                        {{trainmetric|round(3, 'common')}}
-                    </td>
+                {% for key, trainmetric in row.get_metrics_value().items() %}
+                    {% if key in metrics_name %}
+                        <td>
+                            {{trainmetric|round(3, 'common')}}
+                        </td>
+                    {% endif %}
                 {% endfor %}
             </tr>
         {% endcall %}
@@ -53,7 +57,10 @@
                     <button type="button" class="btn btn-outline-danger" id="favorite" data-value="0"><i class="fas fa-star" style="margin-right:5px"></i><span>Remove from favorites</span></button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-outline-warning" id="autobot" data-id=""><i class="fas fa-robot" style="margin-right:5px"></i><span>create BOT</span></button>
+                <button type="button" class="btn btn-outline-warning" id="autobot" data-id="">
+                    <i class="fas fa-robot" style="margin-right:5px"></i><span>create BOT</span>
+                </button>
+                
             </div>
         </div>
         <div class="row justify-content-center">
@@ -92,6 +99,20 @@
     </section>
     <!-- /.content -->
 </div>
+{% call() modal("modal_bot",title="Bot Settings",savebutton=True, savebuttonid="deploy_autobot", savebuttontext="Deploy Boy") %}
+<div class="row">
+    <div class="col-md-6">
+        {{ input("bot_capital", "bot_capital", type="number", label="Available capital (Base currency)", required=True, placeholder="0", min="0", step="0.001") }}
+        {{ checkbox("same_capital", "same_capital", 1, "Same capital to every pair.", checked=True, disabled=True) }}
+    </div>
+    <div class="col-md-6">
+        <label for="">Select the pairs for Bot</label>
+        <div id="select_pairs">
+
+        </div>
+    </div>
+</div>
+{% endcall %}
 
 {% endblock content %}
 
@@ -114,14 +135,16 @@
         }); 
         $(document).on('click','.backtest', function(e){
             const trainmodel_id = $(this).data("id");
-            const pair_name = $('#backtest_tab .pairs .active input').val();
+            let pair_name = $('#backtest_tab .pairs .active input').val();
+            
+            pair_name = (pair_name && pair_name != "All")? pair_name:'All';
             console.log(trainmodel_id);
             console.log(pair_name);
-            $.get(`/favorite/backtest/${trainmodel_id}/${pair_name?pair_name:'name'}`).then( result => {
+            $.get(`/favorite/backtest/${trainmodel_id}/${pair_name}`).then( result => {
                 console.log(result);
                 try{
-                    metricHtml = "";
-                    pairsHtml = "";
+                    let metricHtml = "";
+                    let pairsHtml = "";
                     $(".metrics-row").empty();
                     $(".pairs .btn-group-toggle").empty();
                     $.each(result.metrics, (i,item)=>{
@@ -131,21 +154,45 @@
                               <span class="description-text">${item.name}</span>
                             </div>
                         </div>`;
-                    
                     });
-                    $.each(result.pairs, (i,item)=>{
-                        console.log(item);
-                        pairsHtml+=`<label class="btn btn-info ${item == pair_name? 'active':(i==0 && !pair_name?'active':'')}">
-                                <input class="btn-pair backtest" type="radio" name="pair_options" value="${item}" data-id="${trainmodel_id}" autocomplete="off"> ${item}
-                            </label>`;
-                    
-                    });
+                    if(pair_name != "All"){
+                        pairsHtml = `<label class="btn btn-info">
+                            <input class="btn-pair backtest" type="radio" name="pair_options" value="All" data-id="${trainmodel_id}" autocomplete="off"> All
+                        </label>`;
+                        $.each(result.pairs, (i,item)=>{
+                            console.log(item);
+                            pairsHtml+=`<label class="btn btn-info ${item == pair_name? 'active':(i==0 && !pair_name?'active':'')}">
+                                    <input class="btn-pair backtest" type="radio" name="pair_options" value="${item}" data-id="${trainmodel_id}"  autocomplete="off"> ${item}
+                                </label>`;
+                        
+                        });
+                    }else{
+                        pairsHtml = `<label class="btn btn-info active">
+                                    <input class="btn-pair backtest" type="radio" name="pair_options" value="All" data-id="${trainmodel_id}" checked autocomplete="off"> All
+                                </label>`;
+                        $.each(result.pairs, (i,item)=>{
+                            console.log(item);
+                            pairsHtml+=`<label class="btn btn-info">
+                                    <input class="btn-pair backtest" type="radio" name="pair_options" value="${item}" data-id="${trainmodel_id}" autocomplete="off"> ${item}
+                                </label>`;
+                        });
+                    }
                     $(".metrics-row").append(metricHtml);
                     $(".pairs .btn-group-toggle").append(pairsHtml);
+
                     $(".charts-row .chart-candle").empty();
-                    $(".charts-row .chart-funds").empty();
-                    $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="700px">`);
-                    $(".charts-row .chart-funds").append(`<embed src="${result.chart_funds}" type="text/html" width="100%" height="500px">`);
+                    if(pair_name!="All"){
+                        $(".charts-row .chart-candle").removeClass("col-md-12").addClass("col-md-8");
+                        $(".charts-row .chart-funds").empty();
+                        $(".charts-row .chart-funds").show();
+                        $(".charts-row .chart-funds").append(`<embed src="${result.chart_funds}" type="text/html" width="100%" height="500px">`);
+                        $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="700px">`);
+                    }else{
+                        $(".charts-row .chart-funds").hide();
+                        $(".charts-row .chart-candle").removeClass("col-md-8").addClass("col-md-12");
+                        $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="900px">`);
+                    }
+
                     $('#trainmodel_name').html(result.model_name);
                     $('#autobot').attr('data-id',result.id);
                     if(result.has_bot){
@@ -170,11 +217,41 @@
             });
         });
         $('#autobot').on('click',function(e){
-            let train_model_id = $(this).attr('data-id');
+            let htmlx = "";
+            $('#select_pairs').empty();
+            $('#bot_capital').val(0);
+            //console.log($('.pairs .btn-group-toggle').children('label'))
+            $('.pairs .btn-group-toggle').children('label').each(function(i,item)
+            {
+                console.log($(this).find('input').attr('value'))
+                //console.log($(item).children('input').html);
+                if($(this).find('input').attr('value') != "All"){
+                    htmlx += `<div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="${$(this).find('input').attr('value')}" name="bot_pairs" checked value="${$(this).find('input').attr('value')}">
+                                    <label for="${$(this).find('input').attr('value')}" class="custom-control-label">${$(this).find('input').attr('value')}</label>
+                                    </div>
+                                </div>`;
+                }
+            });
+            $('#select_pairs').append(htmlx);
+            console.log("holll")
+            $('#modal_bot').modal('show');
+        });
+        $('#deploy_autobot').on('click',function(e){
+            let train_model_id = $('#autobot').attr('data-id');
+            var favorite = [];
             let name =  $('.nav-link.backtest.active').html();
+            let capital = $('#bot_capital').val();
+            $.each($("input[name='bot_pairs']:checked"), function(){
+                favorite.push($(this).val());
+            });
+            console.log(favorite);
             formData = new FormData
             formData.append("id",train_model_id);
             formData.append("name",name);
+            formData.append("pairs",JSON.stringify(favorite));
+            formData.append("capital",capital);
             $.ajax({
                 url: "/autotrade/add",
                 method: "POST",
@@ -186,8 +263,9 @@
                     if(data.success){
                         toastr.success('Bot was created successfully!');
                         $('#autobot').removeClass('btn-outline-warning').addClass('btn-warning');
-                        $('#autobot span').html('create BOT');
-                        $('#autobot').prop('disabled', false);
+                        $('#autobot span').html('created BOT');
+                        $('#autobot').prop('disabled', true);
+                        $('#modal_bot').modal('hide');
                     }else{
                         toastr.error(data.message);
                     }

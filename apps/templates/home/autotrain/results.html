@@ -29,7 +29,7 @@
             </div>
         </div>
     </section>-->
-    {% set metrics_name = ["F1-score","ROC", "Specificity", "Accuracy", "Recall", "Precision", "TP", "TN", "FP", "FN"] %}
+    {% set metrics_name = ["F1-score","ROC", "Recall", "Precision", "N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"] %}
     {% set header = ["Train", "Model"]+metrics_name %}
     {% set resume_content %}
         {% call(row,head,index) x_table.simple_table(header, trains, "Trainings results" , "table_train_results", class="hover", height="auto") %}            
@@ -38,10 +38,12 @@
                     <td rowspan="1">{{index}}</td>
                     {% set name = trainmodel.model.split('/')[3].split("_") %}
                     <td>{{name[0]}}</td>
-                    {% for trainmetric in trainmodel.get_metrics_value() %}
-                        <td>
-                            {{trainmetric|round(3, 'common')}}
-                        </td>
+                    {% for key, trainmetric in trainmodel.get_metrics_value().items() %}
+                        {% if key in metrics_name %}
+                            <td>
+                                {{trainmetric|round(3, 'common')}}
+                            </td>
+                        {% endif %}
                     {% endfor %}
                 </tr>
             {% endfor %}
@@ -64,9 +66,12 @@
             <div class="col-auto pairs">
                 <div class="btn-group">          
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-info active">
+                            <input class="btn-pair backtest" type="radio" name="pair_options" id="backtest_all" value="All" autocomplete="off" checked > All
+                        </label>
                         {% for backts in train.backtests %}
                             <label class="btn btn-info">
-                                <input class="btn-pair backtest" type="radio" name="pair_options" id="backtest_{{backts.id}}" value="{{backts.pair}}" autocomplete="off" {% if loop.index==1 %} checked {% endif %} > {{backts.pair}}
+                                <input class="btn-pair backtest" type="radio" name="pair_options" id="backtest_{{backts.id}}" value="{{backts.pair}}" autocomplete="off"> {{backts.pair}}
                             </label>
                         {% endfor %}
                     </div>                         
@@ -154,9 +159,18 @@
                     });
                     $(".metrics-row").append(metricHtml);
                     $(".charts-row .chart-candle").empty();
-                    $(".charts-row .chart-funds").empty();
-                    $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="700px">`);
-                    $(".charts-row .chart-funds").append(`<embed src="${result.chart_funds}" type="text/html" width="100%" height="500px">`);
+                    if(pair_name!="All"){
+                        $(".charts-row .chart-candle").removeClass("col-md-12").addClass("col-md-8");
+                        $(".charts-row .chart-funds").empty();
+                        $(".charts-row .chart-funds").show();
+                        $(".charts-row .chart-funds").append(`<embed src="${result.chart_funds}" type="text/html" width="100%" height="500px">`);
+                        $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="700px">`);
+                    }else{
+                        $(".charts-row .chart-funds").hide();
+                        $(".charts-row .chart-candle").removeClass("col-md-8").addClass("col-md-12");
+                        $(".charts-row .chart-candle").append(`<embed src="${result.chart_candle}" type="text/html" width="100%" height="900px">`);
+                    }
+                    
                     if(result.favorite){
                         $('#favorite').removeClass('btn-outline-warning').addClass('btn-warning');
                         $('#favorite span').html('Favorite');

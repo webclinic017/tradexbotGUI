@@ -173,7 +173,12 @@ def insertModelMetric():
             {"name": "TP"},
             {"name": "TN"},
             {"name": "FP"},
-            {"name": "FN"}
+            {"name": "FN"},
+            {"name": "N buys"},
+            {"name": "N BuysAcum"},
+            {"name": "Max Drawdown"},
+            {"name": "Capital"},
+            {"name": "Profit"},
             ]
     condition = [models.ModelMetric(
         name = item["name"]
