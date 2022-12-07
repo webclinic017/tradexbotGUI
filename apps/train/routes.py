@@ -306,7 +306,7 @@ async def backtest_results(training_id: int,pair_name: str,model_name: str, user
     else:
         chart_candle = train_model.chart
         chart_funds = ""
-        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"]
+        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit","Capital used","Profit Cap used"]
         metrics = [{"name": item.model_metric.name, "value": item.value} for item in train_model.train_metrics if item.model_metric.name in aux_metric_names]
         return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.split('/')[3], "chart_funds": chart_funds, 
                             "metrics": metrics, "favorite":train_model.favorite},status_code=200)
@@ -359,7 +359,7 @@ async def favorite_results(trainmodel_id: int, pair_name: str, user: User = Depe
     else:
         chart_candle = train_model.chart
         chart_funds = ""
-        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"]
+        aux_metric_names = ["N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit","Capital used","Profit Cap used"]
         metrics = [{"name": item.model_metric.name, "value": item.value} for item in train_model.train_metrics if item.model_metric.name in aux_metric_names]
         return JSONResponse(content={"chart_candle":os.getenv("API_CHART")+chart_candle.split('/')[3], 
                             "chart_funds": chart_funds, "metrics": metrics, "pairs": pairs, "id":train_model.id, 

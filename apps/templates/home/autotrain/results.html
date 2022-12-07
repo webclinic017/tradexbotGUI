@@ -29,7 +29,7 @@
             </div>
         </div>
     </section>-->
-    {% set metrics_name = ["F1-score","ROC", "Recall", "Precision", "N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit"] %}
+    {% set metrics_name = ["F1-score","ROC", "Recall", "Precision", "N buys", "N BuysAcum", "Max Drawdown", "Capital", "Profit","Capital used","Profit Cap used"] %}
     {% set header = ["Train", "Model"]+metrics_name %}
     {% set resume_content %}
         {% call(row,head,index) x_table.simple_table(header, trains, "Trainings results" , "table_train_results", class="hover", height="auto") %}            

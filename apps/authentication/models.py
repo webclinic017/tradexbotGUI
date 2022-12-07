@@ -402,7 +402,6 @@ class TrainModel(Base, SerializerMixin):
     model = Column(String(200))
     scaler = Column(String(200))
     chart = Column(String(200))
-    n_buys = Column(Integer)
     columns = Column(String(1000))
     model_best_parameters = Column(String(2000))
     active = Column(Boolean, default=True)

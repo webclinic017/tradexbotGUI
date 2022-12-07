@@ -12,7 +12,11 @@ def insertConditions():
             {"name": "Major","description":"Is major than"},
             {"name": "Minor","description":"Is minor than"},
             {"name": "Distinct","description":"Is distinct of"},
-            {"name": "Reached","description":"Is reached"}
+            {"name": "Reached","description":"Is reached"},
+            {"name": "Increasing","description":"Is increasing times"},
+            {"name": "Decreasing","description":"Is decreasing times"},
+            {"name": "Bottom Breakpoint","description":"Has bottom valley"},
+            {"name": "Top Breakpoint","description":"Has top peak"},
             ]
     condition = [models.Condition(
         name = item["name"],
@@ -153,7 +157,10 @@ def insertAlgorithm():
     data = [{"name": "RandomForest","parameters":"{'n_stimators': [800,1000], 'min_samples_split': [4],'cv': 5,'random_state': 0}","type":"ML"},
             {"name": "XGBoost","parameters":"{'learning_rate': [0.1],'objective': ['binary:logistic'],'cv': 5,'n_estimators': [1000,1200],'random_state': 0}","type":"ML"},
             {"name": "SVM","parameters":"{'kernel': ['rbf','linear'],'cv': 5,'random_state': 0}","type":"ML"},
-            {"name": "KNN","parameters":"{'metric': ['euclidean','minkowski'],'cv': 5,'n_neighbors': [5,7]}","type":"ML"}]
+            {"name": "KNN","parameters":"{'metric': ['euclidean','minkowski'],'cv': 5,'n_neighbors': [5,7]}","type":"ML"},
+            {"name": "LSTM","parameters":"{'lstm_units': [128,256],'epochs': [50, 100],'batch_size': [32, 64],'cv': 4}","type":"DL"}
+            ]
+            
     condition = [models.Algorithm(
         name = item["name"],
         parameters = item["parameters"],
@@ -179,6 +186,8 @@ def insertModelMetric():
             {"name": "Max Drawdown"},
             {"name": "Capital"},
             {"name": "Profit"},
+            {"name": "Capital used"},
+            {"name": "Profit Cap used"},
             ]
     condition = [models.ModelMetric(
         name = item["name"]
